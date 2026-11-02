@@ -69,15 +69,22 @@
          ========================================================================== -->
     <header class="main-header">
         <div class="header-container">
-            <!-- Brand Logo Area -->
-            <a href="#home" class="logo-area" title="Imperial College of Nursing QEC">
+            <!-- Brand Logo Area: QEC Prominently Highlighted -->
+            <a href="#home" class="logo-area" title="Quality Enhancement Cell (QEC) | Imperial College of Nursing">
                 <img src="assets/images/logo.png" alt="Imperial College of Nursing Logo" class="logo-img">
                 <div class="logo-text">
-                    <h1>Imperial College of Nursing</h1>
-                    <p>
+                    <div class="qec-header-title">
+                        <h1 class="qec-title-main">Quality Enhancement Cell</h1>
+                        <span class="qec-badge-prominent"><i class="fas fa-award"></i> QEC</span>
+                    </div>
+                    <p class="college-sub-text">
+                        <span>Imperial College of Nursing</span>
+                        <span class="dot-sep">&bull;</span>
                         <span>Kabal, Swat</span>
-                        <span class="qec-pill"><i class="fas fa-award"></i> QEC CELL</span>
                     </p>
+                    <div class="affiliation-badge-header">
+                        <i class="fas fa-university"></i> Affiliated with Khyber Medical University (KMU) Peshawar
+                    </div>
                 </div>
             </a>
 
@@ -86,41 +93,18 @@
                 <ul class="nav-list">
                     <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> About QEC</a></li>
-                    <li><a href="#news" class="nav-link"><i class="fas fa-newspaper"></i> News & Notifications</a></li>
-                    
-                    <!-- Dropdown for the two feedback portals -->
-                    <li class="nav-dropdown">
-                        <a href="#feedback" class="nav-link dropdown-toggle">
-                            <i class="fas fa-comment-dots"></i> Feedback Portals <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 2px;"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="#feedback" class="dropdown-item" onclick="document.querySelector('[data-tab=\'clinicalFeedbackTab\']').click();">
-                                <i class="fas fa-flask"></i>
-                                <div>
-                                    <strong>Clinical & Skills Lab Feedback</strong>
-                                    <small style="display:block; color:var(--text-muted); font-size:0.75rem;">Lab equipment & hospital rotations</small>
-                                </div>
-                            </a>
-                            <a href="#feedback" class="dropdown-item" onclick="document.querySelector('[data-tab=\'classroomFeedbackTab\']').click();">
-                                <i class="fas fa-chalkboard-teacher"></i>
-                                <div>
-                                    <strong>Classes & Teacher Feedback</strong>
-                                    <small style="display:block; color:var(--text-muted); font-size:0.75rem;">HEC Proforma-1 course evaluations</small>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-
+                    <li><a href="#targets" class="nav-link"><i class="fas fa-bullseye"></i> KMU Approved Targets</a></li>
+                    <li><a href="#feedback" class="nav-link"><i class="fas fa-clipboard-check"></i> QA Feedback System</a></li>
+                    <li><a href="#news" class="nav-link"><i class="fas fa-newspaper"></i> Notifications</a></li>
                     <li><a href="#downloads" class="nav-link"><i class="fas fa-file-download"></i> Downloads</a></li>
-                    <li><a href="#targets" class="nav-link"><i class="fas fa-bullseye"></i> Targets</a></li>
                     <li><a href="#contact" class="nav-link"><i class="fas fa-headset"></i> Contact</a></li>
                 </ul>
             </nav>
 
             <!-- Header Action Button -->
             <div class="header-actions">
-                <a href="#feedback" class="btn btn-primary btn-sm">
-                    <i class="fas fa-edit"></i> Submit Feedback
+                <a href="#targets" class="btn btn-primary btn-sm">
+                    <i class="fas fa-bullseye"></i> KMU Approved Targets
                 </a>
                 <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
                     <i class="fas fa-bars"></i>
@@ -140,10 +124,10 @@
                 </div>
                 <div class="ticker-content">
                     <div class="ticker-track">
-                        <span class="ticker-item"><i class="fas fa-check-circle"></i> Official Notification: Quality Enhancement Cell (QEC) Office established at Imperial College of Nursing Kabal, Swat. <a href="#news">Read Details &rarr;</a></span>
-                        <span class="ticker-item"><i class="fas fa-user-check"></i> Office Order: Notification of QEC Officer and QA Committee appointed by the Principal. <a href="#news">View Notification &rarr;</a></span>
-                        <span class="ticker-item"><i class="fas fa-clipboard-list"></i> Feedback Window Open: Students can now submit Clinical & Skills Lab and Course evaluations online. <a href="#feedback">Submit Now &rarr;</a></span>
-                        <span class="ticker-item"><i class="fas fa-file-pdf"></i> Annual Self-Assessment Report (SAR) and QEC Targets updated in the Downloads section. <a href="#downloads">Download Documents &rarr;</a></span>
+                        <span class="ticker-item"><i class="fas fa-award"></i> <strong>KMU Syndicate Approval:</strong> 2025–2026 QEC Quality Targets officially notified (Ref: KMU/SA&A/51st Syndicate/2025/6114). <a href="#targets">View Official Targets &rarr;</a></span>
+                        <span class="ticker-item"><i class="fas fa-clipboard-check"></i> <strong>Student Evaluation Policy:</strong> Semester Course Evaluations (HEC Proforma-1) & Clinical Lab surveys administered in-person by QEC. <a href="#feedback">View QA Framework &rarr;</a></span>
+                        <span class="ticker-item"><i class="fas fa-building"></i> <strong>Establishment:</strong> Quality Enhancement Cell (QEC) Office permanently established at Imperial College of Nursing Swat. <a href="#news">Read Details &rarr;</a></span>
+                        <span class="ticker-item"><i class="fas fa-file-pdf"></i> <strong>Downloads:</strong> Official KMU Targets notification scan and evaluation proformas available. <a href="#downloads">Download Documents &rarr;</a></span>
                     </div>
                 </div>
             </div>
@@ -171,8 +155,8 @@
                                 <h2 class="caption-title">Fostering <span>Quality & Academic Excellence</span> in Nursing Education</h2>
                                 <p class="caption-text">Committed to rigorous quality assurance standards aligned with Higher Education Commission (HEC) Pakistan and Khyber Medical University (KMU) QAA guidelines.</p>
                                 <div class="caption-actions">
-                                    <a href="#about" class="btn btn-primary"><i class="fas fa-info-circle"></i> Explore QEC Cell</a>
-                                    <a href="#feedback" class="btn btn-outline-white"><i class="fas fa-star"></i> Student Feedback Portals</a>
+                                    <a href="#targets" class="btn btn-primary"><i class="fas fa-bullseye"></i> KMU Approved Targets</a>
+                                    <a href="#feedback" class="btn btn-outline-white"><i class="fas fa-clipboard-check"></i> QA Feedback System</a>
                                 </div>
                             </div>
                         </div>
@@ -191,8 +175,8 @@
                                 <h2 class="caption-title">State-of-the-Art <span>Skills Lab & Clinical Competencies</span></h2>
                                 <p class="caption-text">Regular audits of anatomical models, OSCE stations, simulator mannequins, and clinical training hospital rotations to empower tomorrow's healthcare heroes.</p>
                                 <div class="caption-actions">
-                                    <a href="#feedback" class="btn btn-primary" onclick="document.querySelector('[data-tab=\'clinicalFeedbackTab\']').click();"><i class="fas fa-stethoscope"></i> Clinical Feedback Form</a>
-                                    <a href="#downloads" class="btn btn-outline-white"><i class="fas fa-file-pdf"></i> Lab QA Guidelines</a>
+                                    <a href="#feedback" class="btn btn-primary"><i class="fas fa-microscope"></i> Clinical & Lab QA</a>
+                                    <a href="#downloads" class="btn btn-outline-white"><i class="fas fa-file-pdf"></i> Download Proformas</a>
                                 </div>
                             </div>
                         </div>
@@ -209,10 +193,10 @@
                             <div class="caption-content">
                                 <span class="carousel-badge"><i class="fas fa-chalkboard-teacher"></i> Student-Centric Pedagogy</span>
                                 <h2 class="caption-title">Transparent <span>Course & Teacher Evaluations</span></h2>
-                                <p class="caption-text">Empowering students through confidential and constructive evaluation proformas that directly shape teaching methodology and curriculum coverage.</p>
+                                <p class="caption-text">Empowering students through confidential and constructive in-person evaluation proformas that directly shape teaching methodology and curriculum coverage.</p>
                                 <div class="caption-actions">
-                                    <a href="#feedback" class="btn btn-primary" onclick="document.querySelector('[data-tab=\'classroomFeedbackTab\']').click();"><i class="fas fa-pencil-alt"></i> Evaluate Courses</a>
-                                    <a href="#about" class="btn btn-outline-white"><i class="fas fa-clipboard-check"></i> Quality Policy</a>
+                                    <a href="#feedback" class="btn btn-primary"><i class="fas fa-clipboard-check"></i> Evaluation Mechanism</a>
+                                    <a href="#targets" class="btn btn-outline-white"><i class="fas fa-bullseye"></i> KMU 100-Point Targets</a>
                                 </div>
                             </div>
                         </div>
@@ -542,45 +526,45 @@
                     </div>
                 </div>
 
-                <!-- NEWS ITEM 5: DIGITAL FEEDBACK ELICITATION LAUNCH -->
-                <div class="news-card" data-category="academic">
+                <!-- NEWS ITEM 5: KMU SYNDICATE APPROVED TARGETS 2025-2026 -->
+                <div class="news-card featured" data-category="notification">
                     <div class="news-card-header">
-                        <span class="badge badge-green"><i class="fas fa-laptop"></i> Digital QA</span>
-                        <span class="news-meta"><i class="far fa-calendar-alt"></i> October 18, 2025</span>
+                        <span class="badge badge-red"><i class="fas fa-university"></i> KMU Syndicate Notification</span>
+                        <span class="news-meta"><i class="far fa-calendar-alt"></i> December 17, 2025</span>
                     </div>
                     <div class="news-card-body">
-                        <h3 class="news-card-title">Launch of Online Student Feedback Portal (qec.iconswat.com)</h3>
+                        <h3 class="news-card-title">KMU Syndicate Approves 100-Point QEC Targets (2025–2026)</h3>
                         <p class="news-card-text">
-                            Students can now submit feedback digitally on Clinical rotations, Skills Lab stations, and classroom teacher evaluations. Responses are encrypted and analyzed confidentially by the QEC Secretariat.
+                            Following University IQC recommendations, Khyber Medical University Syndicate has officially approved quality targets for affiliated institutes across 5 Quality Indicators: Secretariat (20), Clinical & Labs (26), Student Feedback (16), Empowering QEC (23), and External Evaluation (15).
                         </p>
-                        <a href="#feedback" class="read-notif-btn">
-                            <span>Open Feedback Form</span> <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <button class="read-notif-btn" id="newsOpenKmuScanBtn">
+                            <span>View KMU Notification Scan</span> <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                     <div class="news-card-footer">
-                        <span class="news-ref">REF: ICON/QEC/DIGI/2025/11</span>
-                        <span class="badge badge-green">Online Active</span>
+                        <span class="news-ref">REF: KMU/SA&A/51st Syndicate/2025/6114</span>
+                        <a href="assets/docs/KMU_Approved_QEC_Targets_2025_2026.pdf" download class="badge badge-blue"><i class="fas fa-download"></i> Official PDF</a>
                     </div>
                 </div>
 
-                <!-- NEWS ITEM 6: ANNUAL QUALITY TARGETS & STRATEGY -->
-                <div class="news-card" data-category="audit">
+                <!-- NEWS ITEM 6: IN-PERSON STUDENT EVALUATION MECHANISM -->
+                <div class="news-card" data-category="academic">
                     <div class="news-card-header">
-                        <span class="badge badge-red"><i class="fas fa-chart-line"></i> Strategic Plan</span>
-                        <span class="news-meta"><i class="far fa-calendar-alt"></i> November 01, 2025</span>
+                        <span class="badge badge-blue"><i class="fas fa-clipboard-check"></i> KMU Target 3</span>
+                        <span class="news-meta"><i class="far fa-calendar-alt"></i> Annual Cycle</span>
                     </div>
                     <div class="news-card-body">
-                        <h3 class="news-card-title">Publication of QEC Strategic Targets & Quality Action Plan</h3>
+                        <h3 class="news-card-title">Student In-Person Course & Clinical Evaluation Protocol</h3>
                         <p class="news-card-text">
-                            The QEC Annual Quality Action Plan (2025-2026) has been formulated, targeting 100% course file completeness, enhanced clinical preceptor mentorship, and international simulation laboratory standards.
+                            In compliance with KMU QA Agency directives, student evaluations (HEC Proforma-1) and clinical rotation reviews are conducted in-person on physical proformas directly by the QEC team to guarantee authentic participation and confidentiality.
                         </p>
-                        <a href="#downloads" class="read-notif-btn">
-                            <span>View Targets PDF</span> <i class="fas fa-arrow-right"></i>
+                        <a href="#feedback" class="read-notif-btn">
+                            <span>View Evaluation Framework</span> <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                     <div class="news-card-footer">
-                        <span class="news-ref">REF: ICON/QEC/AP/2025-04</span>
-                        <a href="assets/docs/QEC_Targets_and_Action_Plan_2025_2026.pdf" download class="badge badge-blue"><i class="fas fa-download"></i> PDF</a>
+                        <span class="news-ref">REF: ICON/QEC/EVAL/2025/19</span>
+                        <a href="assets/docs/HEC_Teacher_and_Course_Evaluation_Proforma.pdf" download class="badge badge-blue"><i class="fas fa-download"></i> Proforma PDF</a>
                     </div>
                 </div>
 
