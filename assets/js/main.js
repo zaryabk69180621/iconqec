@@ -1,7 +1,8 @@
 /**
- * IMPERIAL COLLEGE OF NURSING, KABAL SWAT
- * Quality Enhancement Cell (QEC) - Official Portal Script
- * Target: qec.iconswat.com
+ * Quality Enhancement Cell (QEC) Website
+ * Imperial College of Nursing, Kabal Swat
+ * Target Subdomain: qec.iconswat.com
+ * Main Application Script
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,21 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = document.querySelectorAll('.carousel-dot');
     const prevBtn = document.querySelector('.carousel-control.prev');
     const nextBtn = document.querySelector('.carousel-control.next');
-    const carouselContainer = document.querySelector('.carousel-container');
+    const sliderContainer = document.querySelector('.carousel-container');
 
     let currentSlide = 0;
-    let slideInterval = null;
-    const slideDuration = 6000; // 6 seconds per slide
+    const totalSlides = slides.length;
+    let autoPlayTimer = null;
+    const autoPlayInterval = 6000; // 6 seconds per slide
 
     function goToSlide(index) {
-        if (!slides.length) return;
-        slides[currentSlide].classList.remove('active');
-        if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
+        if (totalSlides === 0) return;
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
 
-        currentSlide = (index + slides.length) % slides.length;
+        currentSlide = (index + totalSlides) % totalSlides;
 
         slides[currentSlide].classList.add('active');
-        if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+        if (dots[currentSlide]) {
+            dots[currentSlide].classList.add('active');
+        }
     }
 
     function nextSlide() {
@@ -40,48 +44,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startAutoPlay() {
         stopAutoPlay();
-        slideInterval = setInterval(nextSlide, slideDuration);
+        autoPlayTimer = setInterval(nextSlide, autoPlayInterval);
     }
 
     function stopAutoPlay() {
-        if (slideInterval) {
-            clearInterval(slideInterval);
-            slideInterval = null;
+        if (autoPlayTimer) {
+            clearInterval(autoPlayTimer);
+            autoPlayTimer = null;
         }
     }
 
-    if (nextBtn && prevBtn) {
+    if (nextBtn) {
         nextBtn.addEventListener('click', () => {
             nextSlide();
             startAutoPlay();
         });
+    }
 
+    if (prevBtn) {
         prevBtn.addEventListener('click', () => {
             prevSlide();
             startAutoPlay();
         });
     }
 
-    dots.forEach((dot, idx) => {
+    dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            goToSlide(idx);
+            goToSlide(index);
             startAutoPlay();
         });
     });
 
-    if (carouselContainer) {
-        carouselContainer.addEventListener('mouseenter', stopAutoPlay);
-        carouselContainer.addEventListener('mouseleave', startAutoPlay);
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+        sliderContainer.addEventListener('mouseleave', startAutoPlay);
 
         // Touch swipe support for mobile
         let touchStartX = 0;
         let touchEndX = 0;
 
-        carouselContainer.addEventListener('touchstart', (e) => {
+        sliderContainer.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
         }, { passive: true });
 
-        carouselContainer.addEventListener('touchend', (e) => {
+        sliderContainer.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
             handleSwipe();
         }, { passive: true });
@@ -133,14 +139,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+        // Toggle dropdown in mobile view
+        document.querySelectorAll('.dropdown-toggle').forEach(dropToggle => {
+            dropToggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1080) {
+                    e.preventDefault();
+                    const parent = dropToggle.closest('.nav-dropdown');
+                    if (parent) {
+                        parent.classList.toggle('active');
+                    }
+                }
+            });
+        });
     }
 
     // Header shadow on scroll
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 30) {
-            mainHeader.classList.add('scrolled');
-        } else {
-            mainHeader.classList.remove('scrolled');
+        if (mainHeader) {
+            if (window.scrollY > 30) {
+                mainHeader.classList.add('scrolled');
+            } else {
+                mainHeader.classList.remove('scrolled');
+            }
         }
 
         // Back to top button
@@ -164,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        3. NEWS & NOTIFICATIONS FILTER
        ========================================================================== */
-    const newsFilterBtns = document.querySelectorAll('.news-filter-btn');
+    const newsFilterBtns = document.querySelectorAll('.news-filter-btn:not(.doc-filter-btn)');
     const newsCards = document.querySelectorAll('.news-card');
 
     newsFilterBtns.forEach(btn => {
@@ -185,63 +206,84 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       4. FEEDBACK SECTION TABS & SUB-SWITCH
+       4. KMU TARGETS VIEW SWITCHER (CARDS VS MATRIX TABLE)
        ========================================================================== */
-    // Main Feedback Tabs (Clinical & Skills vs Classes Feedback)
-    const feedbackTabBtns = document.querySelectorAll('.feedback-tab-btn');
-    const feedbackTabPanels = document.querySelectorAll('.feedback-tab-panel');
+    const viewCardsBtn = document.getElementById('viewCardsBtn');
+    const viewTableBtn = document.getElementById('viewTableBtn');
+    const kmuCardsView = document.getElementById('kmuCardsView');
+    const kmuTableView = document.getElementById('kmuTableView');
 
-    feedbackTabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            feedbackTabBtns.forEach(b => b.classList.remove('active'));
-            feedbackTabPanels.forEach(p => p.classList.remove('active'));
-
-            btn.classList.add('active');
-            const target = btn.getAttribute('data-tab');
-            const targetPanel = document.getElementById(target);
-            if (targetPanel) {
-                targetPanel.classList.add('active');
-            }
+    if (viewCardsBtn && viewTableBtn && kmuCardsView && kmuTableView) {
+        viewCardsBtn.addEventListener('click', () => {
+            viewCardsBtn.classList.add('active');
+            viewTableBtn.classList.remove('active');
+            kmuCardsView.style.display = 'block';
+            kmuTableView.style.display = 'none';
         });
-    });
 
-    // Sub-switch for Skills Lab vs Clinical Rotation Feedback
-    const subSwitchBtns = document.querySelectorAll('.sub-switch-btn');
-    const skillsLabQuestions = document.getElementById('skillsLabQuestions');
-    const clinicalQuestions = document.getElementById('clinicalQuestions');
-    const clinicalSubCategoryInput = document.getElementById('clinicalSubCategoryInput');
-
-    subSwitchBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            subSwitchBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const mode = btn.getAttribute('data-mode');
-            if (clinicalSubCategoryInput) {
-                clinicalSubCategoryInput.value = mode;
-            }
-
-            if (mode === 'skills') {
-                if (skillsLabQuestions) skillsLabQuestions.style.display = 'block';
-                if (clinicalQuestions) clinicalQuestions.style.display = 'none';
-            } else {
-                if (skillsLabQuestions) skillsLabQuestions.style.display = 'none';
-                if (clinicalQuestions) clinicalQuestions.style.display = 'block';
-            }
+        viewTableBtn.addEventListener('click', () => {
+            viewTableBtn.classList.add('active');
+            viewCardsBtn.classList.remove('active');
+            kmuCardsView.style.display = 'none';
+            kmuTableView.style.display = 'block';
         });
-    });
-
-    /* ==========================================================================
-       5. FORM SUBMISSIONS & VALIDATION
-       ========================================================================== */
-    // Helper function to generate tracking ID
-    function generateTrackingId(prefix = 'ICON-QEC') {
-        const rand = Math.floor(1000 + Math.random() * 9000);
-        const year = new Date().getFullYear();
-        return `${prefix}-${year}-${rand}`;
     }
 
-    // Toast alert helper
+    /* ==========================================================================
+       5. KMU OFFICIAL NOTIFICATION SCAN MODAL VIEWER
+       ========================================================================== */
+    const kmuScanModal = document.getElementById('kmuScanModal');
+    const kmuScanModalClose = document.getElementById('kmuScanModalClose');
+    const btnViewKmuScan = document.getElementById('btnViewKmuScan');
+    const newsOpenKmuScanBtn = document.getElementById('newsOpenKmuScanBtn');
+    const btnPreviewKmuScanDoc = document.getElementById('btnPreviewKmuScanDoc');
+
+    const btnPage1 = document.getElementById('btnPage1');
+    const btnPage2 = document.getElementById('btnPage2');
+    const kmuScanImg = document.getElementById('kmuScanImg');
+
+    function openKmuScanModal(page = 1) {
+        if (kmuScanModal) {
+            setKmuScanPage(page);
+            kmuScanModal.classList.add('active');
+        }
+    }
+
+    function closeKmuScanModal() {
+        if (kmuScanModal) {
+            kmuScanModal.classList.remove('active');
+        }
+    }
+
+    function setKmuScanPage(pageNum) {
+        if (!kmuScanImg) return;
+        if (pageNum === 1) {
+            kmuScanImg.src = 'assets/images/kmu-targets-page-1.png';
+            kmuScanImg.alt = 'KMU Approved Targets Page 1 (Indicators 1 to 4.4)';
+            if (btnPage1) btnPage1.classList.add('active');
+            if (btnPage2) btnPage2.classList.remove('active');
+        } else {
+            kmuScanImg.src = 'assets/images/kmu-targets-page-2.png';
+            kmuScanImg.alt = 'KMU Approved Targets Page 2 (Indicators 4.5 to 5.3, Rating & TORs)';
+            if (btnPage1) btnPage1.classList.remove('active');
+            if (btnPage2) btnPage2.classList.add('active');
+        }
+    }
+
+    if (btnViewKmuScan) btnViewKmuScan.addEventListener('click', () => openKmuScanModal(1));
+    if (newsOpenKmuScanBtn) newsOpenKmuScanBtn.addEventListener('click', () => openKmuScanModal(1));
+    if (btnPreviewKmuScanDoc) btnPreviewKmuScanDoc.addEventListener('click', () => openKmuScanModal(1));
+
+    if (btnPage1) btnPage1.addEventListener('click', () => setKmuScanPage(1));
+    if (btnPage2) btnPage2.addEventListener('click', () => setKmuScanPage(2));
+
+    if (kmuScanModalClose) {
+        kmuScanModalClose.addEventListener('click', closeKmuScanModal);
+    }
+
+    /* ==========================================================================
+       6. CONTACT & HELPDESK FORM
+       ========================================================================== */
     function showToast(message, isSuccess = true) {
         let toast = document.getElementById('toastAlert');
         if (!toast) {
@@ -262,112 +304,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4500);
     }
 
-    // Modal Receipt Helper
-    const receiptModal = document.getElementById('receiptModal');
-    const receiptDetails = document.getElementById('receiptDetails');
-    const receiptCloseBtn = document.getElementById('receiptCloseBtn');
-
-    if (receiptCloseBtn && receiptModal) {
-        receiptCloseBtn.addEventListener('click', () => {
-            receiptModal.classList.remove('active');
-        });
-    }
-
-    // 1. Clinical & Skills Lab Form Submission
-    const clinicalFeedbackForm = document.getElementById('clinicalFeedbackForm');
-    if (clinicalFeedbackForm) {
-        clinicalFeedbackForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const program = document.getElementById('clinProgram').value;
-            const semester = document.getElementById('clinSemester').value;
-            const subCategory = document.getElementById('clinicalSubCategoryInput').value;
-            const anonymous = document.getElementById('clinAnonCheckbox').checked;
-            const studentName = anonymous ? 'Anonymous Nursing Student' : (document.getElementById('clinStudentName').value || 'Registered Student');
-            const comments = document.getElementById('clinComments').value || 'No additional remarks provided.';
-
-            const trackingId = generateTrackingId('CLIN-LAB');
-            const submitDate = new Date().toLocaleString();
-
-            // Populate receipt modal
-            if (receiptDetails && receiptModal) {
-                receiptDetails.innerHTML = `
-                    <div class="receipt-box">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid #cbd5e1; padding-bottom:0.75rem;">
-                            <div>
-                                <span class="badge badge-red">Confirmed Record</span>
-                                <h4 style="margin:0.25rem 0 0 0; color:var(--deep-blue);">Evaluation Receipt</h4>
-                            </div>
-                            <div style="text-align:right;">
-                                <strong style="color:var(--primary-red); font-size:1.1rem; font-family:monospace;">${trackingId}</strong><br>
-                                <small style="color:var(--text-muted);">${submitDate}</small>
-                            </div>
-                        </div>
-                        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Category:</strong> ${subCategory === 'skills' ? 'Skills & Simulation Lab Training' : 'Hospital Clinical Rotation'}</p>
-                        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Academic Program:</strong> ${program}</p>
-                        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Semester / Cohort:</strong> ${semester}</p>
-                        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Student Identity:</strong> ${studentName} ${anonymous ? '<span class="confidential-tag" style="margin-left:0.5rem;"><i class="fas fa-lock"></i> Protected</span>' : ''}</p>
-                        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Suggestions / Notes:</strong> "${comments}"</p>
-                        <div style="margin-top:1.25rem; padding:0.75rem; background:rgba(42,55,125,0.06); border-radius:6px; font-size:0.82rem; color:var(--deep-blue);">
-                            <i class="fas fa-shield-alt"></i> Recorded in Imperial College of Nursing QEC Quality Database. Used for semester clinical audits & lab equipment calibration.
-                        </div>
-                    </div>
-                `;
-                receiptModal.classList.add('active');
-            }
-
-            showToast('Feedback submitted successfully! Thank you for enhancing our clinical standards.');
-            clinicalFeedbackForm.reset();
-        });
-    }
-
-    // 2. Classes / Course & Teacher Feedback Form Submission
-    const classroomFeedbackForm = document.getElementById('classroomFeedbackForm');
-    if (classroomFeedbackForm) {
-        classroomFeedbackForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const program = document.getElementById('classProgram').value;
-            const semester = document.getElementById('classSemester').value;
-            const courseName = document.getElementById('courseName').value || 'Specified Course';
-            const teacherName = document.getElementById('teacherName').value || 'Faculty Instructor';
-            const comments = document.getElementById('classComments').value || 'Constructive feedback recorded.';
-
-            const trackingId = generateTrackingId('TEACH-QA');
-            const submitDate = new Date().toLocaleString();
-
-            if (receiptDetails && receiptModal) {
-                receiptDetails.innerHTML = `
-                    <div class="receipt-box">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid #cbd5e1; padding-bottom:0.75rem;">
-                            <div>
-                                <span class="badge badge-blue">HEC Proforma-1 Form</span>
-                                <h4 style="margin:0.25rem 0 0 0; color:var(--deep-blue);">Teacher & Course Feedback Slip</h4>
-                            </div>
-                            <div style="text-align:right;">
-                                <strong style="color:var(--deep-blue); font-size:1.1rem; font-family:monospace;">${trackingId}</strong><br>
-                                <small style="color:var(--text-muted);">${submitDate}</small>
-                            </div>
-                        </div>
-                        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Course / Subject:</strong> ${courseName}</p>
-                        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Faculty Instructor:</strong> ${teacherName}</p>
-                        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Program & Semester:</strong> ${program} (${semester})</p>
-                        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Evaluation Standard:</strong> HEC Quality Assurance Agency (QAA) Compliance</p>
-                        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Qualitative Remarks:</strong> "${comments}"</p>
-                        <div style="margin-top:1.25rem; padding:0.75rem; background:rgba(194,32,40,0.06); border-radius:6px; font-size:0.82rem; color:var(--primary-red);">
-                            <i class="fas fa-lock"></i> Strictly Confidential. Aggregated ratings will be reflected in the Annual Self-Assessment Report (SAR).
-                        </div>
-                    </div>
-                `;
-                receiptModal.classList.add('active');
-            }
-
-            showToast('Course & Teacher evaluation submitted successfully! Thank you.');
-            classroomFeedbackForm.reset();
-        });
-    }
-
-    // 3. Contact & Helpdesk Form
     const qecContactForm = document.getElementById('qecContactForm');
     if (qecContactForm) {
         qecContactForm.addEventListener('submit', (e) => {
@@ -378,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       6. DOWNLOADS SECTION SEARCH & FILTER
+       7. DOWNLOADS SECTION SEARCH & FILTER
        ========================================================================== */
     const docSearchInput = document.getElementById('docSearchInput');
     const docFilterBtns = document.querySelectorAll('.doc-filter-btn');
@@ -418,13 +354,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       7. OFFICIAL NOTIFICATIONS MODAL
+       8. OFFICIAL NOTIFICATIONS MODAL
        ========================================================================== */
     const notifModal = document.getElementById('notifModal');
     const notifModalTitle = document.getElementById('notifModalTitle');
     const notifModalBody = document.getElementById('notifModalBody');
     const notifModalClose = document.getElementById('notifModalClose');
-    const notifReadBtns = document.querySelectorAll('.read-notif-btn');
+    const notifReadBtns = document.querySelectorAll('.read-notif-btn[data-notif]');
 
     const notificationData = {
         'establishment': {
@@ -446,9 +382,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>The QEC shall function as an independent quality assurance monitoring body directly accountable to the Executive Directorate and Principal, with the following mandate:</p>
                 <ul style="list-style:disc; margin-left:1.5rem; margin-bottom:1.25rem; font-size:0.95rem;">
                     <li style="margin-bottom:0.5rem;">To institute and conduct regular Self-Assessment Process (SAP) across all nursing programs including Generic BSN and Post-RN BSN.</li>
-                    <li style="margin-bottom:0.5rem;">To design, administer, and analyze comprehensive student feedback elicitation for Clinical Rotations, Skills & Simulation Labs, and Academic Classrooms.</li>
+                    <li style="margin-bottom:0.5rem;">To design, administer, and analyze comprehensive in-person student feedback elicitation for Clinical Rotations, Skills & Simulation Labs, and Academic Classrooms.</li>
                     <li style="margin-bottom:0.5rem;">To conduct periodic audits of the Nursing Skills Lab, Anatomy Museum, Library, and affiliated Clinical Teaching Hospital facilities.</li>
-                    <li style="margin-bottom:0.5rem;">To maintain the official public institutional portal at <strong>qec.iconswat.com</strong> for quality transparency and public dissemination of QA targets.</li>
+                    <li style="margin-bottom:0.5rem;">To maintain the official public institutional portal at <strong>qec.iconswat.com</strong> for quality transparency and public dissemination of KMU approved QA targets.</li>
                 </ul>
                 <div style="margin-top:2rem; display:flex; justify-content:space-between; align-items:flex-end;">
                     <div>
@@ -476,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span><strong>Dated:</strong> August 20, 2025</span>
                 </div>
                 <h4 style="text-align:center; text-decoration:underline; margin-bottom:1.5rem; color:var(--deep-blue);">OFFICE ORDER: NOTIFICATION OF QEC TEAM</h4>
-                <p>The Competent Authority is pleased to notify the appointment of the following officers and faculty members to constitute the executive team of the Quality Enhancement Cell (QEC) at Imperial College of Nursing, Kabal Swat:</p>
+                <p>The Competent Authority is pleased to notify the appointment of the following officers and faculty members to constitute the executive team of the Quality Enhancement Cell (QEC) at Imperial College of Nursing, Kabal Swat (KMU Approved Indicator 1.2):</p>
                 <div style="margin:1.5rem 0; overflow-x:auto;">
                     <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
                         <tr style="background:var(--light-gray); text-align:left;">
@@ -485,14 +421,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             <th style="padding:0.75rem; border:1px solid #cbd5e1;">Role in QEC</th>
                         </tr>
                         <tr>
-                            <td style="padding:0.75rem; border:1px solid #cbd5e1;"><strong>Director QEC</strong></td>
+                            <td style="padding:0.75rem; border:1px solid #cbd5e1;"><strong>Head of QEC</strong></td>
                             <td style="padding:0.75rem; border:1px solid #cbd5e1;">Prof. / Dr. QA In-charge</td>
                             <td style="padding:0.75rem; border:1px solid #cbd5e1;">Overall Strategic QA Leadership & KMU Liaison</td>
                         </tr>
                         <tr>
-                            <td style="padding:0.75rem; border:1px solid #cbd5e1;"><strong>Deputy Director / QEC Officer</strong></td>
-                            <td style="padding:0.75rem; border:1px solid #cbd5e1;">Senior Nursing Faculty</td>
-                            <td style="padding:0.75rem; border:1px solid #cbd5e1;">SAR Coordination & Student Feedback Elicitation</td>
+                            <td style="padding:0.75rem; border:1px solid #cbd5e1;"><strong>Officers QEC (2)</strong></td>
+                            <td style="padding:0.75rem; border:1px solid #cbd5e1;">Senior Nursing Faculty Officers</td>
+                            <td style="padding:0.75rem; border:1px solid #cbd5e1;">SAR Coordination & In-Person Student Feedback</td>
                         </tr>
                         <tr>
                             <td style="padding:0.75rem; border:1px solid #cbd5e1;"><strong>Clinical QA Coordinator</strong></td>
@@ -500,9 +436,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             <td style="padding:0.75rem; border:1px solid #cbd5e1;">Skills Lab & Hospital Rotation Audits</td>
                         </tr>
                         <tr>
-                            <td style="padding:0.75rem; border:1px solid #cbd5e1;"><strong>Data Analyst & Portal In-charge</strong></td>
-                            <td style="padding:0.75rem; border:1px solid #cbd5e1;">IT / Institutional Research Officer</td>
-                            <td style="padding:0.75rem; border:1px solid #cbd5e1;">Management of qec.iconswat.com Repository</td>
+                            <td style="padding:0.75rem; border:1px solid #cbd5e1;"><strong>Support Staff / IT Officer</strong></td>
+                            <td style="padding:0.75rem; border:1px solid #cbd5e1;">IT / Record Assistant</td>
+                            <td style="padding:0.75rem; border:1px solid #cbd5e1;">Management of qec.iconswat.com & Data Archiving</td>
                         </tr>
                     </table>
                 </div>
@@ -523,11 +459,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p style="margin:0; font-weight:600; color:var(--text-dark);">Quality Enhancement Cell — Clinical QA Wing</p>
                 </div>
                 <h4 style="text-align:center; color:var(--primary-red); margin-bottom:1rem;">SCHEDULE OF CLINICAL & SKILLS LAB QUALITY AUDIT</h4>
-                <p>Notice is hereby given that the Quality Enhancement Cell (QEC) will be conducting its bi-annual comprehensive inspection and quality audit across all practical learning stations:</p>
+                <p>Notice is hereby given that the Quality Enhancement Cell (QEC) will be conducting its bi-annual comprehensive inspection and quality audit across all practical learning stations (KMU Indicator 2):</p>
                 <ul style="list-style:disc; margin-left:1.5rem; margin-bottom:1.5rem;">
                     <li><strong>Skills Simulation Lab:</strong> Calibration of CPR mannequins, intravenous simulators, OSCE station consumables, and sterilization equipment.</li>
                     <li><strong>Clinical Teaching Hospital:</strong> Student clinical logbook verification, preceptor interaction records, patient-to-student exposure metrics, and occupational safety measures.</li>
-                    <li><strong>Feedback Mechanism:</strong> Student elicitation forms will be deployed via the digital portal at qec.iconswat.com.</li>
+                    <li><strong>Feedback Mechanism:</strong> Standardized physical evaluation proformas administered directly in wards and labs by QEC Secretariat.</li>
                 </ul>
             `
         }
@@ -561,7 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       8. FAQ ACCORDION
+       9. FAQ ACCORDION
        ========================================================================== */
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
@@ -578,7 +514,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       9. QUICK PREVIEW DOCUMENT MODAL
+       10. QUICK PREVIEW DOCUMENT MODAL
        ========================================================================== */
     const docPreviewBtns = document.querySelectorAll('.preview-doc-btn');
     const docModal = document.getElementById('docPreviewModal');
@@ -609,13 +545,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Print Receipt Helper
-    const printReceiptBtn = document.getElementById('printReceiptBtn');
-    if (printReceiptBtn) {
-        printReceiptBtn.addEventListener('click', () => {
-            window.print();
-        });
-    }
-
-    console.log('ICON QEC Portal Initialized Successfully for qec.iconswat.com');
+    console.log('ICON QEC Portal Initialized Successfully for qec.iconswat.com (KMU Syndicate Targets 2025-2026)');
 });

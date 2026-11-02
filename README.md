@@ -74,30 +74,41 @@ iconqec website/
 - Interactive live category filter (`All`, `Official Notifications`, `QA Audits`, `Academic QA`).
 - **Interactive Notification Modal**: Visitors can click "Read Official Notification" to view the full formatted official letterhead and even print it directly.
 
-### 4. Feedback Elicitation Portals
-Includes two interactive portals accessible via tabs and the navigation bar:
-- **Clinical & Skills Lab Feedback Elicitation**:
-  - Sub-switch to toggle between **Skills Lab Evaluation** and **Hospital Clinical Rotation Evaluation**.
-  - Parameters: Mannequins and simulator condition, demonstrator guidance, time for hands-on practice, consumables availability, hygiene, and hospital preceptor mentorship.
-  - Option to submit with student name or as **100% Anonymous**.
-  - Instant validation, automated submission receipt generation with unique tracking ID (`CLIN-LAB-2025-XXXX`), and printable receipt slip.
-- **Classes / Course & Teacher Feedback Elicitation**:
-  - Full compliance with **HEC Quality Assurance Agency (QAA) Proforma-1**.
-  - Rating metrics for teacher punctuality, syllabus completion, concept clarity, AV aids, and grading transparency.
-  - Generates confirmation slip with tracking ID (`TEACH-QA-2025-XXXX`).
+### 4. Student Feedback & Evaluation System (In-Person Mechanism)
+In compliance with **Khyber Medical University (KMU)** and **Higher Education Commission (HEC)** quality standards:
+- **No Online Feedback Policy**: We do not collect student feedback via online web forms to guarantee 100% authentic participation, uncompromised student anonymity, and tamper-proof statistical reliability for IQC and KMU reporting.
+- **4 Pillars Aligned Strictly with KMU Indicator 3 (Score: 16)**:
+  - **3.1 Teacher Evaluation (HEC Proforma-1)**: End-of-semester proformas administered in-class without faculty presence; compiled into Teacher Evaluation Reports.
+  - **3.2 Clinical & Skills Lab Training Feedback**: Administered on-site at teaching hospitals and on-campus simulation labs.
+  - **3.3 Target Program Surveys**: Standardized surveys (Graduating student survey, Alumni survey, Employer survey, Course review).
+  - **3.4 Student Representation in Statutory Meetings**: Direct inclusion of student representatives in statutory official meetings (IQC, Academic Advisory) upon directives of KMU Vice Chancellor & HEC.
+- **Downloadable Blank Proformas**: Students and faculty can download official PDF evaluation proformas and review assessment criteria.
+- **5-Step Closed-Loop Lifecycle**: From in-person proforma administration to confidential collection, statistical tabulation, IQC review, corrective action plans, and KMU Syndicate reporting.
 
 ### 5. Document Downloads Section
 Pre-configured with genuine, downloadable official PDF templates that can be viewed in the browser or downloaded with one click:
+- **KMU Syndicate Approved Targets & Rating Criteria 2025-2026 (Ref: KMU/SA&A/51st Syndicate/2025/6114)**
 - **Self-Assessment Report (SAR) - BSN Program (PDF)**
-- **QEC Strategic Targets & Action Plan 2025-2026 (PDF)**
 - **Notification of QEC Officers Appointment (PDF)**
 - **Clinical Rotation & Skills Lab QA Framework (PDF)**
 - **HEC Proforma-1 Teacher & Course Evaluation Form (PDF)**
 - Live document search bar and category filter.
 - Document preview modal with an embedded PDF viewer.
 
-### 6. Targets Timeline & Strategic Roadmap
-- Visual 4-Quarter milestone roadmap for HEC compliance and quality enhancement.
+### 6. KMU Approved Quality Targets (2025–2026)
+Officially approved by the **51st Syndicate Meeting of Khyber Medical University Peshawar** on 23-11-2025 (Ref: `No. KMU/SA&A/51st Syndicate/2025/6114`, Dated: 17/12/2025):
+- **100 Cumulative Marks** across 5 Core Quality Indicators:
+  1. **QEC Secretariat Establishment (20 Marks)**: Permanent office (10) & staff appointments (10).
+  2. **Provision of Clinical & Lab Skills (26 Marks)**: Hospital facilities (13) & institute labs (13) with logbook & attendance evidence.
+  3. **Students Feedback (16 Marks)**: Teacher evaluation (4), clinical feedback (4), surveys (4), and statutory student participation (4).
+  4. **Empowering the QEC (23 Marks)**: KMU meetings (3), PNQAHE membership (4), media publicity (2), web update (2), QA event organizing (2), PNQAHE international conference (5), KMU regional workshops (5).
+  5. **External Evaluation (15 Marks)**: College statistics HES data (5), accreditation & renewal (5), and KMU on-site visit facilitation (5).
+- **QEC Rating Criteria Tiers**:
+  - **Category W (85% – 100%)**: Top position award & Best Performers Certificate.
+  - **Category X (68% – 84%)**: Letter of Appreciation issued.
+  - **Category Y (51% – 67%)**: Minimum satisfactory baseline.
+- **Terms of Reference (TORs)**: Portal submission deadline up to **15th July, 2026** on `https://faculty.kmu.edu.pk/institute/qec_report`.
+- **Interactive Scanned Notification Modal**: Built-in 2-page high-resolution viewer for Page 1 & Page 2 of the official signed and stamped KMU notification.
 
 ### 7. Governance Organogram
 - Hierarchy detailing Principal Office oversight, Director QEC, Deputy Director QA, and Clinical QA Coordinators.

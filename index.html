@@ -573,398 +573,202 @@
     </section>
 
     <!-- ==========================================================================
-         FEEDBACK ELICITATION SECTION (THE CORE INTERACTIVE FEATURE)
-         Tabs for:
-         1. Clinical and Skills Lab Feedback Elicitation
-         2. Classes & Teacher Feedback Elicitation (HEC Proforma-1)
+         STUDENT FEEDBACK & QUALITY EVALUATION SYSTEM
+         Aligned with KMU Syndicate Approved Indicator 3 (Students Feedback - Score: 16)
          ========================================================================== -->
     <section class="feedback-section" id="feedback">
         <div class="container">
             <div class="text-center">
-                <span class="section-tag"><i class="fas fa-heart"></i> Student & Stakeholder Voice</span>
-                <h2 class="section-title">Feedback Elicitation Portals</h2>
+                <span class="section-tag"><i class="fas fa-clipboard-check"></i> Standardized QA Mechanism</span>
+                <h2 class="section-title">Student Feedback & Quality Evaluation System</h2>
                 <p class="section-subtitle">
-                    Your candid feedback directly drives the Quality Enhancement Cell's academic corrective measures, hospital rotations, and lab facilities. All responses are handled with strict institutional confidentiality.
+                    Systematic student evaluations administered in-person by the Quality Enhancement Cell across academic classrooms, clinical rotation hospital wards, and simulation labs.
                 </p>
             </div>
 
-            <!-- Main Feedback Tabs Navigation -->
-            <div class="feedback-tabs-nav">
-                <button class="feedback-tab-btn active" data-tab="clinicalFeedbackTab">
-                    <i class="fas fa-stethoscope"></i>
-                    <span>Clinical & Skills Lab Feedback</span>
-                </button>
-                <button class="feedback-tab-btn" data-tab="classroomFeedbackTab">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span>Classes & Teacher Feedback (HEC Proforma-1)</span>
-                </button>
-            </div>
-
-            <!-- ==========================================
-                 TAB PANEL 1: CLINICAL & SKILLS LAB FEEDBACK
-                 ========================================== -->
-            <div class="feedback-tab-panel active" id="clinicalFeedbackTab">
-                <div class="feedback-form-card">
-                    <div class="form-header-badge">
-                        <div class="form-header-title">
-                            <h3><i class="fas fa-flask" style="color:var(--primary-red);"></i> Clinical & Skills Lab Training Evaluation</h3>
-                            <p>Assessing simulation mannequins, demonstration clarity, hospital rotations, and safety protocols.</p>
-                        </div>
-                        <div class="confidential-tag">
-                            <i class="fas fa-user-shield"></i> 100% Confidential Evaluation
-                        </div>
-                    </div>
-
-                    <!-- Sub-switch: Skills Lab vs Clinical Rotation -->
-                    <div class="sub-switch-bar">
-                        <button type="button" class="sub-switch-btn active" data-mode="skills">
-                            <i class="fas fa-vial"></i> Skills Lab Evaluation
-                        </button>
-                        <button type="button" class="sub-switch-btn" data-mode="clinical">
-                            <i class="fas fa-hospital-user"></i> Hospital Clinical Rotation
-                        </button>
-                    </div>
-
-                    <form id="clinicalFeedbackForm">
-                        <input type="hidden" id="clinicalSubCategoryInput" value="skills">
-
-                        <!-- Demographic / Program Row -->
-                        <div class="form-row-grid">
-                            <div class="form-group">
-                                <label for="clinProgram"><i class="fas fa-graduation-cap"></i> Academic Program *</label>
-                                <select id="clinProgram" class="form-control" required>
-                                    <option value="Generic BSN (4-Year)">Generic BSN (4-Year)</option>
-                                    <option value="Post-RN BSN (2-Year)">Post-RN BSN (2-Year)</option>
-                                    <option value="Certified Nursing Assistant (CNA)">Certified Nursing Assistant (CNA)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="clinSemester"><i class="fas fa-layer-group"></i> Semester / Year *</label>
-                                <select id="clinSemester" class="form-control" required>
-                                    <option value="1st Semester">1st Semester</option>
-                                    <option value="2nd Semester">2nd Semester</option>
-                                    <option value="3rd Semester">3rd Semester</option>
-                                    <option value="4th Semester">4th Semester</option>
-                                    <option value="5th Semester">5th Semester</option>
-                                    <option value="6th Semester">6th Semester</option>
-                                    <option value="7th Semester">7th Semester</option>
-                                    <option value="8th Semester">8th Semester</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="clinHospital"><i class="fas fa-hospital"></i> Practical Site / Lab Station *</label>
-                                <input type="text" id="clinHospital" class="form-control" placeholder="e.g. ICON Main Skills Lab or THQ/DHQ Hospital" required value="ICON Nursing Skills & Simulation Lab">
-                            </div>
-                        </div>
-
-                        <!-- QUESTIONS: 1. SKILLS LAB (Default Active) -->
-                        <div id="skillsLabQuestions" class="rating-matrix-wrapper">
-                            <div class="rating-matrix-title">
-                                <i class="fas fa-check-circle" style="color:var(--primary-red);"></i> Skills Lab Evaluation Parameters (Likert Scale: 1 = Poor to 5 = Excellent)
-                            </div>
-
-                            <!-- Q1 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">1. Availability and functional condition of anatomical models & simulation mannequins</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q1" value="1" required>Poor</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q1" value="2">Fair</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q1" value="3">Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q1" value="4">V.Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q1" value="5" checked>Excellent</label>
-                                </div>
-                            </div>
-
-                            <!-- Q2 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">2. Clarity and comprehensiveness of instructor demonstrations before hands-on practice</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q2" value="1" required>Poor</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q2" value="2">Fair</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q2" value="3">Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q2" value="4" checked>V.Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q2" value="5">Excellent</label>
-                                </div>
-                            </div>
-
-                            <!-- Q3 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">3. Adequate time allocated for each student to practice essential nursing procedures</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q3" value="1" required>Poor</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q3" value="2">Fair</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q3" value="3">Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q3" value="4">V.Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q3" value="5" checked>Excellent</label>
-                                </div>
-                            </div>
-
-                            <!-- Q4 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">4. Provision of consumables (syringes, cannulas, gloves, antiseptics) during practicals</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q4" value="1" required>Poor</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q4" value="2">Fair</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q4" value="3">Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q4" value="4" checked>V.Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q4" value="5">Excellent</label>
-                                </div>
-                            </div>
-
-                            <!-- Q5 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">5. Lab hygiene, lighting, ventilation, and adherence to safety & infection protocols</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q5" value="1" required>Poor</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q5" value="2">Fair</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q5" value="3">Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q5" value="4">V.Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="lab_q5" value="5" checked>Excellent</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- QUESTIONS: 2. HOSPITAL CLINICAL ROTATION (Hidden by default, switched via button) -->
-                        <div id="clinicalQuestions" class="rating-matrix-wrapper" style="display: none;">
-                            <div class="rating-matrix-title">
-                                <i class="fas fa-hospital" style="color:var(--deep-blue);"></i> Clinical Hospital Rotation Parameters (Likert Scale: 1 = Poor to 5 = Excellent)
-                            </div>
-
-                            <!-- CQ1 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">1. Quality and accessibility of clinical preceptor mentorship and bedside guidance</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q1" value="1">Poor</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q1" value="2">Fair</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q1" value="3">Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q1" value="4">V.Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q1" value="5" checked>Excellent</label>
-                                </div>
-                            </div>
-
-                            <!-- CQ2 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">2. Exposure to diverse patient clinical cases aligned with course learning objectives</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q2" value="1">Poor</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q2" value="2">Fair</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q2" value="3">Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q2" value="4" checked>V.Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q2" value="5">Excellent</label>
-                                </div>
-                            </div>
-
-                            <!-- CQ3 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">3. Timely verification and signature of student clinical logbooks and procedure records</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q3" value="1">Poor</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q3" value="2">Fair</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q3" value="3">Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q3" value="4">V.Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q3" value="5" checked>Excellent</label>
-                                </div>
-                            </div>
-
-                            <!-- CQ4 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">4. Supportive and safe learning environment within the hospital wards and units</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q4" value="1">Poor</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q4" value="2">Fair</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q4" value="3">Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q4" value="4" checked>V.Good</label>
-                                    <label class="likert-radio-label"><input type="radio" name="clin_q4" value="5">Excellent</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Qualitative Comments -->
-                        <div class="form-group" style="margin-bottom: 1.5rem;">
-                            <label for="clinComments"><i class="fas fa-comment-medical"></i> Qualitative Observations & Suggestions for Lab / Clinical Site</label>
-                            <textarea id="clinComments" rows="3" class="form-control" placeholder="Share specific recommendations for equipment, mannequin calibration, clinical preceptor interaction, or hospital coordination..."></textarea>
-                        </div>
-
-                        <!-- Anonymous and Identity Details -->
-                        <div class="form-row-grid" style="align-items: center; margin-bottom: 1rem;">
-                            <div class="form-group">
-                                <label for="clinStudentName"><i class="fas fa-user"></i> Student Name (Optional)</label>
-                                <input type="text" id="clinStudentName" class="form-control" placeholder="e.g. Ahmad Khan (or leave blank)">
-                            </div>
-                            <div class="form-group">
-                                <label><i class="fas fa-shield-alt"></i> Privacy Option</label>
-                                <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 0;">
-                                    <input type="checkbox" id="clinAnonCheckbox" checked style="width: 18px; height: 18px;">
-                                    <label for="clinAnonCheckbox" style="margin: 0; font-size: 0.88rem; cursor: pointer;">Submit as Anonymous Nursing Student</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary" style="height: 48px; width: 100%;">
-                                    <i class="fas fa-paper-plane"></i> Submit Clinical Feedback
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="form-disclaimer">
-                            <i class="fas fa-info-circle"></i>
-                            <div>
-                                <strong>QEC Assurance:</strong> Your response is encrypted. Data is compiled in aggregated statistical format for the bi-annual Clinical Audit Report submitted to Khyber Medical University (KMU).
-                            </div>
-                        </div>
-                    </form>
+            <!-- Institutional Evaluation Policy Alert Box -->
+            <div class="feedback-policy-banner">
+                <div class="policy-banner-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="policy-banner-text">
+                    <h4>Institutional In-Person Evaluation Policy</h4>
+                    <p>
+                        In strict compliance with the Quality Assurance Agency criteria of <strong>Khyber Medical University (KMU) Peshawar</strong> and the <strong>Higher Education Commission (HEC) Pakistan</strong>, Imperial College of Nursing <strong>does not take student evaluations or feedback online</strong>. All course evaluations (HEC Proforma-1), clinical rotation assessments, and institutional surveys are administered <strong>in-person on physical proformas directly by the QEC Secretariat</strong> in classrooms and hospital wards. This rigorous procedure safeguards 100% genuine student participation, uncompromised student anonymity, and tamper-proof statistical reliability for official IQC and KMU reporting.
+                    </p>
                 </div>
             </div>
 
-            <!-- ==========================================
-                 TAB PANEL 2: CLASSES & TEACHER FEEDBACK
-                 (HEC QAA Proforma-1 Format)
-                 ========================================== -->
-            <div class="feedback-tab-panel" id="classroomFeedbackTab">
-                <div class="feedback-form-card">
-                    <div class="form-header-badge">
-                        <div class="form-header-title">
-                            <h3><i class="fas fa-chalkboard-teacher" style="color:var(--deep-blue);"></i> Course & Teacher Evaluation (HEC Proforma-1)</h3>
-                            <p>Standardized evaluation of curriculum delivery, instructor punctuality, and concept clarity.</p>
+            <!-- 4 Pillars of Student Feedback (Strictly Aligned with KMU Indicator 3) -->
+            <div class="feedback-pillars-grid">
+
+                <!-- Pillar 1: KMU Indicator 3.1 -->
+                <div class="pillar-card">
+                    <div>
+                        <div class="pillar-header">
+                            <div class="pillar-icon-wrapper">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <span class="pillar-score-badge">KMU Indicator 3.1 &bull; Score: 04</span>
                         </div>
-                        <div class="confidential-tag">
-                            <i class="fas fa-user-shield"></i> HEC QAA Standard Format
+                        <h4 class="pillar-title">Teacher & Course Evaluation (HEC Proforma-1)</h4>
+                        <p class="pillar-desc">
+                            Administered by QEC officers at the end of each semester across all academic programs (Generic BSN &amp; Post-RN BSN). Instructors exit the hall to ensure total candor and blind evaluation.
+                        </p>
+                        <ul class="pillar-checklist">
+                            <li><i class="fas fa-check-circle"></i> Curriculum pacing &amp; syllabus coverage</li>
+                            <li><i class="fas fa-check-circle"></i> Concept clarity &amp; clinical correlation</li>
+                            <li><i class="fas fa-check-circle"></i> Punctuality, engagement &amp; accessibility</li>
+                            <li><i class="fas fa-check-circle"></i> Transparency of internal assessments &amp; quizzes</li>
+                        </ul>
+                        <div class="pillar-evidence-row">
+                            <strong>Official Evidence Provided:</strong> Teacher Evaluation Report by Students compiled per course &amp; department.
                         </div>
                     </div>
+                    <div class="pillar-actions">
+                        <a href="assets/docs/HEC_Teacher_and_Course_Evaluation_Proforma.pdf" download class="btn btn-outline btn-sm" style="width:100%;">
+                            <i class="fas fa-file-pdf"></i> Download HEC Proforma-1
+                        </a>
+                        <button class="btn btn-blue btn-sm preview-doc-btn" data-url="assets/docs/HEC_Teacher_and_Course_Evaluation_Proforma.pdf" data-title="HEC Proforma-1: Teacher Evaluation">
+                            <i class="fas fa-eye"></i> Preview Form
+                        </button>
+                    </div>
+                </div>
 
-                    <form id="classroomFeedbackForm">
-                        <div class="form-row-grid">
-                            <div class="form-group">
-                                <label for="classProgram"><i class="fas fa-graduation-cap"></i> Program *</label>
-                                <select id="classProgram" class="form-control" required>
-                                    <option value="Generic BSN (4-Year)">Generic BSN (4-Year)</option>
-                                    <option value="Post-RN BSN (2-Year)">Post-RN BSN (2-Year)</option>
-                                    <option value="CNA">Certified Nursing Assistant (CNA)</option>
-                                </select>
+                <!-- Pillar 2: KMU Indicator 3.2 -->
+                <div class="pillar-card">
+                    <div>
+                        <div class="pillar-header">
+                            <div class="pillar-icon-wrapper">
+                                <i class="fas fa-flask"></i>
                             </div>
-                            <div class="form-group">
-                                <label for="classSemester"><i class="fas fa-calendar-alt"></i> Semester *</label>
-                                <select id="classSemester" class="form-control" required>
-                                    <option value="1st Semester">1st Semester</option>
-                                    <option value="2nd Semester">2nd Semester</option>
-                                    <option value="3rd Semester">3rd Semester</option>
-                                    <option value="4th Semester">4th Semester</option>
-                                    <option value="5th Semester">5th Semester</option>
-                                    <option value="6th Semester">6th Semester</option>
-                                    <option value="7th Semester">7th Semester</option>
-                                    <option value="8th Semester">8th Semester</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="courseName"><i class="fas fa-book-medical"></i> Course / Subject *</label>
-                                <input type="text" id="courseName" class="form-control" placeholder="e.g. Fundamentals of Nursing, Anatomy, Pharmacology" required>
-                            </div>
+                            <span class="pillar-score-badge">KMU Indicator 3.2 &bull; Score: 04</span>
                         </div>
-
-                        <div class="form-row-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 1.5rem;">
-                            <div class="form-group">
-                                <label for="teacherName"><i class="fas fa-chalkboard-teacher"></i> Name of Teacher / Instructor *</label>
-                                <input type="text" id="teacherName" class="form-control" placeholder="e.g. Course Instructor / Lecturer" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="evalPeriod"><i class="fas fa-clock"></i> Evaluation Term</label>
-                                <select id="evalPeriod" class="form-control">
-                                    <option value="Mid-Term Evaluation (2025-2026)">Mid-Term Evaluation (2025-2026)</option>
-                                    <option value="Final Semester Evaluation (2025-2026)">Final Semester Evaluation (2025-2026)</option>
-                                </select>
-                            </div>
+                        <h4 class="pillar-title">Clinical &amp; Skills Lab Training Feedback</h4>
+                        <p class="pillar-desc">
+                            Administered on-site across clinical teaching hospitals (Saidu Group of Teaching Hospitals / Central Hospital) and on-campus simulation laboratories to audit hands-on learning.
+                        </p>
+                        <ul class="pillar-checklist">
+                            <li><i class="fas fa-check-circle"></i> Mannequin &amp; simulation equipment condition</li>
+                            <li><i class="fas fa-check-circle"></i> Availability of consumable medical supplies</li>
+                            <li><i class="fas fa-check-circle"></i> Clinical preceptor bedside supervision</li>
+                            <li><i class="fas fa-check-circle"></i> Clinical logbook entries &amp; attendance audits</li>
+                        </ul>
+                        <div class="pillar-evidence-row">
+                            <strong>Official Evidence Provided:</strong> Clinical &amp; Skills Lab QA Feedback Report.
                         </div>
+                    </div>
+                    <div class="pillar-actions">
+                        <a href="assets/docs/Clinical_and_Skills_Lab_QA_Framework.pdf" download class="btn btn-outline btn-sm" style="width:100%;">
+                            <i class="fas fa-file-pdf"></i> Download Lab QA Form
+                        </a>
+                        <button class="btn btn-blue btn-sm preview-doc-btn" data-url="assets/docs/Clinical_and_Skills_Lab_QA_Framework.pdf" data-title="Clinical &amp; Skills Lab QA Framework">
+                            <i class="fas fa-eye"></i> Preview Form
+                        </button>
+                    </div>
+                </div>
 
-                        <!-- HEC Matrix Questions -->
-                        <div class="rating-matrix-wrapper">
-                            <div class="rating-matrix-title">
-                                <i class="fas fa-list-check" style="color:var(--deep-blue);"></i> Evaluation Criteria (1 = Strongly Disagree to 5 = Strongly Agree)
+                <!-- Pillar 3: KMU Indicator 3.3 -->
+                <div class="pillar-card">
+                    <div>
+                        <div class="pillar-header">
+                            <div class="pillar-icon-wrapper">
+                                <i class="fas fa-poll-h"></i>
                             </div>
-
-                            <!-- Q1 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">1. The teacher is punctual and regular in conducting scheduled lectures and discussions</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q1" value="1" required>1</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q1" value="2">2</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q1" value="3">3</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q1" value="4">4</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q1" value="5" checked>5</label>
-                                </div>
-                            </div>
-
-                            <!-- Q2 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">2. The teacher comes well prepared and communicates course concepts with utmost clarity</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q2" value="1" required>1</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q2" value="2">2</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q2" value="3">3</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q2" value="4" checked>4</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q2" value="5">5</label>
-                                </div>
-                            </div>
-
-                            <!-- Q3 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">3. The syllabus outline prescribed by KMU / PNC was covered comprehensively during the term</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q3" value="1" required>1</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q3" value="2">2</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q3" value="3">3</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q3" value="4">4</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q3" value="5" checked>5</label>
-                                </div>
-                            </div>
-
-                            <!-- Q4 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">4. The teacher encourages student participation, critical questioning, and classroom discussions</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q4" value="1" required>1</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q4" value="2">2</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q4" value="3">3</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q4" value="4" checked>4</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q4" value="5">5</label>
-                                </div>
-                            </div>
-
-                            <!-- Q5 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">5. Effective utilization of multimedia, audio-visual aids, and anatomical illustrations</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q5" value="1" required>1</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q5" value="2">2</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q5" value="3">3</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q5" value="4">4</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q5" value="5" checked>5</label>
-                                </div>
-                            </div>
-
-                            <!-- Q6 -->
-                            <div class="rating-item-row">
-                                <div class="rating-question">6. Internal assessment (quizzes, assignments, mid-terms) is fair, transparent, and returned with feedback</div>
-                                <div class="rating-options">
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q6" value="1" required>1</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q6" value="2">2</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q6" value="3">3</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q6" value="4" checked>4</label>
-                                    <label class="likert-radio-label"><input type="radio" name="cls_q6" value="5">5</label>
-                                </div>
-                            </div>
+                            <span class="pillar-score-badge">KMU Indicator 3.3 &bull; Score: 04</span>
                         </div>
-
-                        <!-- Feedback qualitative text -->
-                        <div class="form-group" style="margin-bottom: 1.5rem;">
-                            <label for="classComments"><i class="fas fa-lightbulb"></i> Strengths of the Course & Constructive Recommendations for Improvement</label>
-                            <textarea id="classComments" rows="3" class="form-control" placeholder="What aspects of the course were most valuable? What can be improved for subsequent batches?"></textarea>
+                        <h4 class="pillar-title">Target Programs Institutional Surveys</h4>
+                        <p class="pillar-desc">
+                            Comprehensive paper surveys conducted across target nursing cohorts to assess long-term learning outcomes, campus facilities, and graduate professional readiness.
+                        </p>
+                        <ul class="pillar-checklist">
+                            <li><i class="fas fa-check-circle"></i> Graduating Student Survey (Exit survey)</li>
+                            <li><i class="fas fa-check-circle"></i> Alumni Survey on career trajectory &amp; competencies</li>
+                            <li><i class="fas fa-check-circle"></i> Employer / Hospital Preceptor Satisfaction Survey</li>
+                            <li><i class="fas fa-check-circle"></i> Library, IT lab &amp; hostel environment surveys</li>
+                        </ul>
+                        <div class="pillar-evidence-row">
+                            <strong>Official Evidence Provided:</strong> Comprehensive Institutional Survey Reports submitted to KMU.
                         </div>
+                    </div>
+                    <div class="pillar-actions">
+                        <a href="assets/docs/Self_Assessment_Report_SAR_BSN.pdf" download class="btn btn-outline btn-sm" style="width:100%;">
+                            <i class="fas fa-file-pdf"></i> Survey Protocol in SAR
+                        </a>
+                        <a href="#downloads" class="btn btn-blue btn-sm">
+                            <i class="fas fa-folder-open"></i> All QA Surveys
+                        </a>
+                    </div>
+                </div>
 
-                        <div style="display: flex; justify-content: flex-end; gap: 1rem;">
-                            <button type="submit" class="btn btn-blue" style="height: 50px; padding: 0 2.5rem;">
-                                <i class="fas fa-check-circle"></i> Submit Course & Teacher Evaluation
-                            </button>
+                <!-- Pillar 4: KMU Indicator 3.4 -->
+                <div class="pillar-card">
+                    <div>
+                        <div class="pillar-header">
+                            <div class="pillar-icon-wrapper">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <span class="pillar-score-badge">KMU Indicator 3.4 &bull; Score: 04</span>
                         </div>
-                    </form>
+                        <h4 class="pillar-title">Student Representation in Statutory Meetings</h4>
+                        <p class="pillar-desc">
+                            In accordance with explicit directives of the Vice Chancellor KMU and HEC, active student representatives are formally included in institutional statutory and decision-making bodies.
+                        </p>
+                        <ul class="pillar-checklist">
+                            <li><i class="fas fa-check-circle"></i> Institutional Quality Committee (IQC) attendance</li>
+                            <li><i class="fas fa-check-circle"></i> Academic &amp; Curriculum Advisory meetings</li>
+                            <li><i class="fas fa-check-circle"></i> Direct student voice in safety &amp; hospital scheduling</li>
+                            <li><i class="fas fa-check-circle"></i> Formal minutes with student attendee signatures</li>
+                        </ul>
+                        <div class="pillar-evidence-row">
+                            <strong>Official Evidence Provided:</strong> Statutory Meeting Minutes &amp; Student Notification Records.
+                        </div>
+                    </div>
+                    <div class="pillar-actions">
+                        <a href="#about" class="btn btn-outline btn-sm" style="width:100%;">
+                            <i class="fas fa-sitemap"></i> Governance Organogram
+                        </a>
+                        <a href="#targets" class="btn btn-blue btn-sm">
+                            <i class="fas fa-bullseye"></i> KMU Directives
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 5-Step Evaluation Lifecycle Flow -->
+            <div class="feedback-lifecycle-card">
+                <div class="lifecycle-header">
+                    <span class="badge badge-red"><i class="fas fa-sync-alt"></i> Closed-Loop QA Cycle</span>
+                    <h3 style="margin-top:0.5rem;">How the QEC Evaluation Process Operates</h3>
+                    <p>From in-person proforma administration to corrective action implementation and KMU reporting.</p>
+                </div>
+                <div class="lifecycle-steps">
+                    <div class="lifecycle-step">
+                        <div class="step-number-bubble">01</div>
+                        <h5>In-Person Distribution</h5>
+                        <p>QEC team distributes official physical proformas directly in classrooms &amp; hospital wards.</p>
+                    </div>
+                    <div class="lifecycle-step">
+                        <div class="step-number-bubble">02</div>
+                        <h5>Confidential Submission</h5>
+                        <p>Students fill proformas anonymously in sealed boxes; teaching faculty is not present.</p>
+                    </div>
+                    <div class="lifecycle-step">
+                        <div class="step-number-bubble">03</div>
+                        <h5>Statistical Analysis</h5>
+                        <p>QEC Secretariat tabulates ratings, computes averages, and analyzes qualitative remarks.</p>
+                    </div>
+                    <div class="lifecycle-step">
+                        <div class="step-number-bubble">04</div>
+                        <h5>Executive IQC Review</h5>
+                        <p>Findings are reviewed by the Principal &amp; IQC; corrective action plans are established.</p>
+                    </div>
+                    <div class="lifecycle-step">
+                        <div class="step-number-bubble">05</div>
+                        <h5>KMU Reporting</h5>
+                        <p>Aggregated reports and evidence are submitted annually to Khyber Medical University.</p>
+                    </div>
                 </div>
             </div>
 
@@ -1027,27 +831,27 @@
                     </div>
                 </div>
 
-                <!-- 2. QEC TARGETS & ANNUAL ACTION PLAN -->
+                <!-- 2. KMU SYNDICATE APPROVED TARGETS -->
                 <div class="download-card" data-category="targets">
                     <div>
-                        <div class="doc-type-icon" style="background:rgba(42,55,125,0.1); color:var(--deep-blue);"><i class="fas fa-file-alt"></i></div>
-                        <span class="upload-later-tag"><i class="fas fa-bullseye"></i> Official Targets Ready</span>
-                        <h4>QEC Annual Targets & Action Plan (2025-2026)</h4>
+                        <div class="doc-type-icon" style="background:rgba(194,32,40,0.1); color:var(--primary-red);"><i class="fas fa-university"></i></div>
+                        <span class="upload-later-tag" style="background:#FEF2F2; color:var(--primary-red); border-color:#FECACA;"><i class="fas fa-stamp"></i> KMU Syndicate Approved</span>
+                        <h4>KMU Syndicate Approved QEC Targets (2025–2026)</h4>
                         <p class="doc-desc">
-                            Strategic road map establishing institutional quality benchmarks, clinical audit schedules, faculty OSCE training milestones, and continuous QA targets approved by the Principal.
+                            Official Notification (Ref: KMU/SA&A/51st Syndicate/2025/6114) approved on 17/12/2025 establishing the 100-Point Quality Indicators and Category W, X, Y Rating Tiers for KMU affiliated institutes.
                         </p>
                     </div>
                     <div>
                         <div class="doc-meta-row">
-                            <span><i class="far fa-file"></i> PDF Document</span>
-                            <span><i class="far fa-calendar"></i> Valid 2025-2026</span>
+                            <span><i class="far fa-file-pdf"></i> Signed Official PDF</span>
+                            <span><i class="far fa-calendar"></i> Approved 2025-2026</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="assets/docs/QEC_Targets_and_Action_Plan_2025_2026.pdf" download="QEC_Targets_and_Action_Plan_2025_2026.pdf" class="btn btn-primary btn-sm">
+                            <a href="assets/docs/KMU_Approved_QEC_Targets_2025_2026.pdf" download="KMU_Approved_QEC_Targets_2025_2026.pdf" class="btn btn-primary btn-sm">
                                 <i class="fas fa-download"></i> Download PDF
                             </a>
-                            <button class="btn btn-outline btn-sm preview-doc-btn" data-url="assets/docs/QEC_Targets_and_Action_Plan_2025_2026.pdf" data-title="QEC Annual Targets & Strategic Action Plan">
-                                <i class="fas fa-eye"></i> Preview
+                            <button type="button" class="btn btn-outline btn-sm" id="btnPreviewKmuScanDoc">
+                                <i class="fas fa-eye"></i> View Scan
                             </button>
                         </div>
                     </div>
@@ -1159,46 +963,657 @@
     </section>
 
     <!-- ==========================================================================
-         QEC TARGETS & STRATEGIC ROADMAP SECTION
+         KMU APPROVED QEC TARGETS (2025–2026) SECTION
+         Notification No: KMU/SA&A/51st Syndicate/2025/6114 | Dated: 17/12/2025
          ========================================================================== -->
     <section class="targets-section" id="targets">
         <div class="container">
             <div class="text-center">
-                <span class="section-tag"><i class="fas fa-bullseye"></i> Continuous Improvement</span>
-                <h2 class="section-title">Institutional Quality Targets</h2>
-                <p class="section-subtitle">Key performance milestones set by the Quality Enhancement Cell to elevate nursing education standards.</p>
+                <span class="section-tag"><i class="fas fa-university"></i> Syndicate Approved Benchmarks</span>
+                <h2 class="section-title">KMU Approved QEC Targets (2025–2026)</h2>
+                <p class="section-subtitle">
+                    Approved by the Syndicate of Khyber Medical University Peshawar in its 51st meeting on 23-11-2025 (Ref: No. KMU/SA&A/51st Syndicate/2025/6114) for all KMU Affiliated Institutes.
+                </p>
             </div>
 
-            <div class="targets-timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-card">
-                        <div class="timeline-date">Quarter 1 (Fall Term)</div>
-                        <h4>100% Course File Verification</h4>
-                        <p>Mandatory audit of semester course syllabi, recommended KMU nursing textbooks, continuous formative quiz rubrics, and clinical rotation schedules.</p>
+            <!-- KMU Official Notification Banner -->
+            <div class="kmu-banner-box">
+                <div class="kmu-banner-left">
+                    <img src="assets/images/KMU-Logo.png" alt="Khyber Medical University Logo" class="kmu-seal-img">
+                    <div class="kmu-banner-title">
+                        <h3>Khyber Medical University, Peshawar</h3>
+                        <p>Administration Block, KMU Main Building, Phase-V, Hayatabad &bull; directorqec@kmu.edu.pk</p>
+                        <div class="kmu-notif-meta">
+                            <span class="kmu-meta-pill"><i class="fas fa-file-contract"></i> No. KMU/SA&A/51st Syndicate/2025/6114</span>
+                            <span class="kmu-meta-pill"><i class="far fa-calendar-check"></i> Dated: 17/12/2025</span>
+                            <span class="kmu-meta-pill red"><i class="fas fa-award"></i> Total Score: 100 Marks</span>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item right">
-                    <div class="timeline-card">
-                        <div class="timeline-date">Quarter 2 (Winter Term)</div>
-                        <h4>Skills Lab Mannequin & Consumable Calibration</h4>
-                        <p>Bi-annual technical inspection of anatomical simulation models, intravenous stations, OSCE assessment stations, and hospital ward safety guidelines.</p>
-                    </div>
+                <div class="kmu-banner-actions">
+                    <button type="button" class="btn btn-primary btn-sm" id="btnViewKmuScan">
+                        <i class="fas fa-file-alt"></i> View Official Notification Scan
+                    </button>
+                    <a href="assets/docs/KMU_Approved_QEC_Targets_2025_2026.pdf" download="KMU_Approved_QEC_Targets_2025_2026.pdf" class="btn btn-outline btn-sm">
+                        <i class="fas fa-download"></i> Download KMU PDF
+                    </a>
+                    <a href="https://faculty.kmu.edu.pk/institute/qec_report" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-sm">
+                        <i class="fas fa-external-link-alt"></i> KMU Submission Portal
+                    </a>
                 </div>
-                <div class="timeline-item left">
-                    <div class="timeline-card">
-                        <div class="timeline-date">Quarter 3 (Spring Term)</div>
-                        <h4>Digitized Student Feedback Elicitation</h4>
-                        <p>End-semester execution of confidential course, teacher, and clinical preceptor feedback via the institutional portal at qec.iconswat.com.</p>
-                    </div>
+            </div>
+
+            <!-- Rating Criteria Tier Cards -->
+            <div class="kmu-rating-row">
+                <div class="kmu-rating-title">
+                    <i class="fas fa-medal" style="color:var(--primary-red);"></i> KMU QEC Rating Criteria &amp; Performance Tiers
                 </div>
-                <div class="timeline-item right">
-                    <div class="timeline-card">
-                        <div class="timeline-date">Quarter 4 (Summer Term)</div>
-                        <h4>Annual Self-Assessment Report (SAR) Publication</h4>
-                        <p>Consolidation of program performance, Program Team remediation plans, and formal submission of institutional QA compliance report to KMU Peshawar.</p>
+                <div class="kmu-rating-grid">
+                    <!-- Tier W -->
+                    <div class="rating-tier-card tier-w">
+                        <div>
+                            <div class="tier-top-row">
+                                <div class="tier-category-badge">W</div>
+                                <div class="tier-score-range">85% – 100%</div>
+                            </div>
+                            <h4 style="margin:0 0 0.5rem 0; color:#065F46; font-size:1.1rem;">Quality Level W &bull; Top Position Award</h4>
+                            <p class="tier-outcome">
+                                Colleges securing top position quality awarded will be awarded; securing W category <strong>Best Performers Certificate</strong> will be awarded.
+                            </p>
+                        </div>
+                        <div class="tier-icon-status">
+                            <i class="fas fa-trophy"></i> Imperial College of Nursing Target (90%+)
+                        </div>
+                    </div>
+
+                    <!-- Tier X -->
+                    <div class="rating-tier-card tier-x">
+                        <div>
+                            <div class="tier-top-row">
+                                <div class="tier-category-badge">X</div>
+                                <div class="tier-score-range">68% – 84%</div>
+                            </div>
+                            <h4 style="margin:0 0 0.5rem 0; color:#0369A1; font-size:1.1rem;">Quality Level X &bull; Appreciation Letter</h4>
+                            <p class="tier-outcome">
+                                Securing X Category, <strong>Letter of Appreciation</strong> will be officially issued by Khyber Medical University.
+                            </p>
+                        </div>
+                        <div class="tier-icon-status">
+                            <i class="fas fa-certificate"></i> Commended QA Performance
+                        </div>
+                    </div>
+
+                    <!-- Tier Y -->
+                    <div class="rating-tier-card tier-y">
+                        <div>
+                            <div class="tier-top-row">
+                                <div class="tier-category-badge">Y</div>
+                                <div class="tier-score-range">51% – 67%</div>
+                            </div>
+                            <h4 style="margin:0 0 0.5rem 0; color:#92400E; font-size:1.1rem;">Quality Level Y &bull; Baseline Compliance</h4>
+                            <p class="tier-outcome">
+                                Minimum satisfactory threshold. Note: Nonparticipation of college/institute alert letter will be issued by KMU.
+                            </p>
+                        </div>
+                        <div class="tier-icon-status">
+                            <i class="fas fa-exclamation-triangle"></i> Mandatory Compliance Benchmark
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- View Switcher -->
+            <div class="kmu-view-switcher">
+                <button type="button" class="view-switch-btn active" id="viewCardsBtn">
+                    <i class="fas fa-th-large"></i> 5 Quality Indicators Cards
+                </button>
+                <button type="button" class="view-switch-btn" id="viewTableBtn">
+                    <i class="fas fa-table"></i> Official Syndicate Matrix Table
+                </button>
+            </div>
+
+            <!-- View 1: 5 Indicator Master Cards -->
+            <div id="kmuCardsView">
+
+                <!-- INDICATOR 1: QEC SECRETARIAT ESTABLISHMENT -->
+                <div class="kmu-indicator-block">
+                    <div class="kmu-ind-header">
+                        <div class="ind-title-wrap">
+                            <div class="ind-index-badge">1</div>
+                            <h4>QEC Secretariat Establishment</h4>
+                        </div>
+                        <span class="ind-score-badge">Total Score: 20 / 100</span>
+                    </div>
+                    <div class="kmu-sub-indicators-list">
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>1.1 Establishment of Permanent QEC Office</h5>
+                                <p>Dedicated, permanently equipped on-campus office for Quality Enhancement Cell operations with independent computer, printing, and archive infrastructure.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">10</span>
+                                <span class="score-label">Marks (Yes / No)</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> Record based (Office order, location verification, office pictures &amp; asset inventory).
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>1.2 Appointment of QEC Staff</h5>
+                                <p><strong>i. Head of QEC:</strong> 1 Permanent/Contractual Employee (05 Marks) or Additional Charge (02 Marks).<br>
+                                <strong>ii. Officers QEC:</strong> 2 Permanent/Contractual Officers (03 Marks) or Add. Charge (01 Mark).<br>
+                                <strong>iii. Support Staff:</strong> 1 Permanent Employee (02 Marks) or Add. Charge (01 Mark).</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">10</span>
+                                <span class="score-label">Marks (Scaled)</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> Record based (Official appointment orders, job contracts, TORs, HR record).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INDICATOR 2: PROVISION OF CLINICAL AND LAB SKILLS -->
+                <div class="kmu-indicator-block">
+                    <div class="kmu-ind-header">
+                        <div class="ind-title-wrap">
+                            <div class="ind-index-badge">2</div>
+                            <h4>Provision of Clinical and Lab Skills</h4>
+                        </div>
+                        <span class="ind-score-badge">Total Score: 26 / 100</span>
+                    </div>
+                    <div class="kmu-sub-indicators-list">
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>2.1 Provision of Clinical Facilities Specific for Each Program (Hospital)</h5>
+                                <p>Availability and utilization of affiliated teaching hospital wards (Saidu Teaching Hospital / Central Hospital) specific to Generic BSN and Post-RN nursing rotations with bedside mentoring.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">13</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> 1. Evidence of logbook &bull; 2. Students Attendance sheets.
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>2.2 Provision of Lab Skills of Each Discipline</h5>
+                                <p>Institute simulation laboratories of each discipline (Skills Lab, Anatomy Museum, Nutrition Lab, Computer / Digital Research Lab) equipped with calibrated mannequins and supplies.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">13</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> 1. Evidence of logbook &bull; 2. Students Attendance sheets.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INDICATOR 3: STUDENTS FEEDBACK -->
+                <div class="kmu-indicator-block">
+                    <div class="kmu-ind-header">
+                        <div class="ind-title-wrap">
+                            <div class="ind-index-badge">3</div>
+                            <h4>Students Feedback</h4>
+                        </div>
+                        <span class="ind-score-badge">Total Score: 16 / 100</span>
+                    </div>
+                    <div class="kmu-sub-indicators-list">
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>3.1 Teacher Evaluation of All Academic Programs Offered by College, by Students</h5>
+                                <p>Systematic in-person semester-end teacher evaluation across all nursing classes (Generic BSN &amp; Post-RN BSN) using standardized HEC Proforma-1 administered by QEC.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">04</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Score Indicator:</strong> Teacher Evaluation Report by Students.
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>3.2 Students' Feedback About Clinical and Lab Skills</h5>
+                                <p>In-person evaluations conducted at hospital clinical rotation units and on-campus skills lab stations regarding preceptor guidance, safety, and equipment availability.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">04</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Score Indicator:</strong> Feedback report.
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>3.3 Applicable Survey Conducted in Target Programs</h5>
+                                <p>Administering standardized surveys across nursing cohorts (Graduating Student Survey, Alumni Survey, Employer Survey, Course Review).</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">04</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Score Indicator:</strong> Survey reports.
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>3.4 Student Participation in Colleges/Institutes Statutory Officials' Meetings</h5>
+                                <p>Upon the directives of Vice Chancellor KMU &amp; HEC, students shall be formally included in various statutory and other meetings (IQC, Academic Advisory) for their best input.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">04</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Score Indicator:</strong> Statutory Meeting Minutes &amp; Student Representative Notification.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INDICATOR 4: EMPOWERING THE QEC -->
+                <div class="kmu-indicator-block">
+                    <div class="kmu-ind-header">
+                        <div class="ind-title-wrap">
+                            <div class="ind-index-badge">4</div>
+                            <h4>Empowering the QEC</h4>
+                        </div>
+                        <span class="ind-score-badge">Total Score: 23 / 100</span>
+                    </div>
+                    <div class="kmu-sub-indicators-list">
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>4.1 Participation in Meetings Arranged by KMU</h5>
+                                <p>Attendance of Director QEC and designated QA officers in official progress review and consultative meetings organized by KMU.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">03</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> Email invitations, attendance sheets &amp; meeting minutes.
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>4.2 Membership of QA Network / Association etc. PNQAHE</h5>
+                                <p>Active institutional membership of Pakistan Network for Quality Assurance in Higher Education (PNQAHE) or recognized QA networks.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">04</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> Record base (Official membership certificate &amp; registration record).
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>4.3 Publicizing QEC Activities Through Print / Electronic Media</h5>
+                                <p>Public dissemination of quality assurance seminars, audits, student workshops, and institutional achievements in newspapers and digital media.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">02</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> Newspaper cuttings &amp; media publication records.
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>4.4 QEC Website / Webpage Update</h5>
+                                <p>Maintenance of the dedicated institutional Quality Enhancement Cell portal at <strong>qec.iconswat.com</strong> with updated QA targets, notifications, and downloadable proformas.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">02</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> Latest activities &amp; verified live weblinks (https://qec.iconswat.com).
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>4.5 Organizing / Sponsoring / Collaboration with Quality Assurance Network</h5>
+                                <p>Organizing, sponsoring, or hosting QA workshops, accreditation symposiums, or collaborative seminars with quality networks (One Event).</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">02</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> One Event &bull; Event Certificates, flyers &amp; report.
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>4.6 Participation / Contribution in the International Conference of PNQAHE</h5>
+                                <p>Participation, paper presentation, or active scholarly contribution in the PNQAHE International Conference on Quality Assurance (One Event).</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">05</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> One Event &bull; Official participation certificates.
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>4.7 Participation in Regional Workshops Arranged by QEC KMU</h5>
+                                <p>Attendance of QEC team members in hands-on regional training workshops, SAR drafting seminars, and audit orientations conducted by QEC KMU (One Event).</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">05</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> One Event &bull; Official certificate of participation.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INDICATOR 5: EXTERNAL EVALUATION -->
+                <div class="kmu-indicator-block">
+                    <div class="kmu-ind-header">
+                        <div class="ind-title-wrap">
+                            <div class="ind-index-badge">5</div>
+                            <h4>External Evaluation</h4>
+                        </div>
+                        <span class="ind-score-badge">Total Score: 15 / 100</span>
+                    </div>
+                    <div class="kmu-sub-indicators-list">
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>5.1 Provision of College Statistics (HES Data) etc.</h5>
+                                <p>Timely compilation and submission of complete institutional data proformas for Higher Education Statistics (HES Data) to KMU and HEC.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">05</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> Number of proformas submitted &bull; Record base.
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>5.2 Provision of Information Regarding Accreditation &amp; Renewal of Academic Programs</h5>
+                                <p>Submission of updated accreditation certificates and renewal documentation from Pakistan Nursing and Midwifery Council (PN&amp;MC), KMU affiliation, and HERA KPK.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">05</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> Number of certificates submitted &bull; Record base.
+                            </div>
+                        </div>
+
+                        <div class="sub-ind-item">
+                            <div class="sub-ind-main">
+                                <h5>5.3 Facilitation of QEC KMU in Onsite Visit of Respective Affiliated College</h5>
+                                <p>Comprehensive coordination, document presentation, clinical station access, and logistic facilitation extended to the KMU QEC inspection team during on-site quality visits.</p>
+                            </div>
+                            <div class="sub-ind-score">
+                                <span class="score-num">05</span>
+                                <span class="score-label">Marks</span>
+                            </div>
+                            <div class="sub-ind-evidence">
+                                <strong>Evidence Required:</strong> Facilitation of QEC KMU in on-site visits &bull; Record base &amp; visit report.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- View 2: Official Syndicate Matrix Table (Hidden by default) -->
+            <div id="kmuTableView" style="display: none;">
+                <div class="kmu-table-container">
+                    <div class="kmu-table-responsive">
+                        <table class="kmu-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50%;">Quality Indicator</th>
+                                    <th style="width: 12%; text-align:center;">Score (100)</th>
+                                    <th style="width: 18%;">Score Indicator</th>
+                                    <th style="width: 20%;">Evidence Provided</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 1. QEC SECRETARIAT ESTABLISHMENT -->
+                                <tr>
+                                    <th colspan="4" class="ind-header-cell">1. QEC SECRETARIAT ESTABLISHMENT (Total: 20 Marks)</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>1.1</strong> Establishment of Permanent QEC Office</td>
+                                    <td class="score-cell">10</td>
+                                    <td>Yes / No</td>
+                                    <td>Record based</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>1.2</strong> Appointment of QEC Staff:<br>
+                                        &bull; <strong>i.</strong> Head of QEC [1 Permanent / Contractual / Additional Charge]<br>
+                                        &bull; <strong>ii.</strong> Officers QEC [2 Permanent / Contractual / Additional Charge]<br>
+                                        &bull; <strong>iii.</strong> Support Staff [1 Permanent employee]
+                                    </td>
+                                    <td class="score-cell">10</td>
+                                    <td>
+                                        Head: Perm/Contractual 05, Add. Charge 02<br>
+                                        Officers: Perm/Contractual 03, Add. Charge 01<br>
+                                        Support Staff: Perm/Contractual 02, Add. Charge 01
+                                    </td>
+                                    <td>Record based</td>
+                                </tr>
+
+                                <!-- 2. PROVISION OF CLINICAL AND LAB SKILLS -->
+                                <tr>
+                                    <th colspan="4" class="ind-header-cell">2. PROVISION OF CLINICAL AND LAB SKILLS (Total: 26 Marks)</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>2.1</strong> Provision of Clinical Facilities Specific for Each Program (Hospital)</td>
+                                    <td class="score-cell">13</td>
+                                    <td>Hospital</td>
+                                    <td>1. Evidence of logbook<br>2. Students Attendance</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2.2</strong> Provision of Lab Skills of Each Discipline</td>
+                                    <td class="score-cell">13</td>
+                                    <td>Institute labs of each discipline</td>
+                                    <td>1. Evidence of logbook<br>2. Students Attendance</td>
+                                </tr>
+
+                                <!-- 3. STUDENTS FEEDBACK -->
+                                <tr>
+                                    <th colspan="4" class="ind-header-cell">3. STUDENTS FEEDBACK (Total: 16 Marks)</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>3.1</strong> Teacher Evaluation of All the Academic Programs Offered by College/Institute, by Students</td>
+                                    <td class="score-cell">04</td>
+                                    <td>Teacher Evaluation Report by Students</td>
+                                    <td>Official Report based</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3.2</strong> Students' feedback about clinical and lab skills</td>
+                                    <td class="score-cell">04</td>
+                                    <td>Feedback report</td>
+                                    <td>Feedback report</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3.3</strong> Applicable survey Conducted in target programs</td>
+                                    <td class="score-cell">04</td>
+                                    <td>Survey reports</td>
+                                    <td>Survey reports</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3.4</strong> Student participation in colleges/Institutes statutory officials' meetings</td>
+                                    <td class="score-cell">04</td>
+                                    <td>Directives of VC KMU &amp; HEC</td>
+                                    <td>Students shall be included in various statutory and other meetings for their best input.</td>
+                                </tr>
+
+                                <!-- 4. EMPOWERING THE QEC -->
+                                <tr>
+                                    <th colspan="4" class="ind-header-cell">4. EMPOWERING THE QEC (Total: 23 Marks)</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>4.1</strong> Participation in Meetings arranged by KMU</td>
+                                    <td class="score-cell">03</td>
+                                    <td>No. of meeting attended</td>
+                                    <td>Email invitation / attendance</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4.2</strong> Membership of QA Network / Association etc. PNQAHE</td>
+                                    <td class="score-cell">04</td>
+                                    <td>Active Membership</td>
+                                    <td>Record base</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4.3</strong> Publicizing QEC Activities through Print/Electronic Media</td>
+                                    <td class="score-cell">02</td>
+                                    <td>No. of Publications</td>
+                                    <td>Newspaper cuttings</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4.4</strong> QEC Website / Webpage update</td>
+                                    <td class="score-cell">02</td>
+                                    <td>Latest activities</td>
+                                    <td>Weblinks (qec.iconswat.com)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4.5</strong> Organizing / Sponsoring / Collaboration with Quality Assurance Network</td>
+                                    <td class="score-cell">02</td>
+                                    <td>One Event</td>
+                                    <td>Certificates</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4.6</strong> Participation / Contribution in the International Conference of PNQAHE</td>
+                                    <td class="score-cell">05</td>
+                                    <td>One Event</td>
+                                    <td>Certificates</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4.7</strong> Participation in Regional Workshops arranged by QEC KMU</td>
+                                    <td class="score-cell">05</td>
+                                    <td>One Event</td>
+                                    <td>Certificate</td>
+                                </tr>
+
+                                <!-- 5. EXTERNAL EVALUATION -->
+                                <tr>
+                                    <th colspan="4" class="ind-header-cell">5. EXTERNAL EVALUATION (Total: 15 Marks)</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>5.1</strong> Provision of College Statistics (HES Data) etc.</td>
+                                    <td class="score-cell">05</td>
+                                    <td>Number of proforma submitted</td>
+                                    <td>Record base</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5.2</strong> Provision of information regarding accreditation &amp; Renewal of Academic Programs</td>
+                                    <td class="score-cell">05</td>
+                                    <td>Number of certificates submitted</td>
+                                    <td>Record base</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5.3</strong> Facilitation of QEC KMU in onsite visit of QEC of respective Affiliated college</td>
+                                    <td class="score-cell">05</td>
+                                    <td>Facilitation of QEC KMU in on-site visits</td>
+                                    <td>Record base</td>
+                                </tr>
+
+                                <!-- TOTAL SCORE ROW -->
+                                <tr class="total-row">
+                                    <td><strong>TOTAL CUMULATIVE SCORE</strong></td>
+                                    <td class="score-cell" style="color:#ffffff; font-size:1.3rem;">100</td>
+                                    <td colspan="2">Target Benchmark for Rating Level W (85% – 100%)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KMU TORs and Online Submission Protocol Card -->
+            <div class="kmu-tors-card">
+                <h4><i class="fas fa-file-invoice" style="color:var(--primary-red);"></i> Terms of Reference (TORs) &amp; Submission Protocol</h4>
+                <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:1.25rem;">
+                    As notified by the Registrar of Khyber Medical University Peshawar, all approved targets must be compiled and submitted up to <strong>15th July, 2026</strong> in soft form on the KMU online portal.
+                </p>
+
+                <div class="tors-portal-link">
+                    <div>
+                        <span><i class="fas fa-link"></i> Official KMU Online Submission Portal:</span>
+                        <a href="https://faculty.kmu.edu.pk/institute/qec_report" target="_blank" rel="noopener noreferrer" style="color:var(--primary-red); font-weight:700; margin-left:0.5rem;">https://faculty.kmu.edu.pk/institute/qec_report</a>
+                    </div>
+                    <span class="badge badge-green"><i class="fas fa-lock"></i> Secured Institutional Portal</span>
+                </div>
+
+                <div class="tors-steps-grid">
+                    <div class="tors-step-item">
+                        <div class="step-letter">a</div>
+                        <p><strong>Portal Activation:</strong> Before entering data, every college/institute must activate their registration portal at <code>https://faculty.kmu.edu.pk</code>.</p>
+                    </div>
+                    <div class="tors-step-item">
+                        <div class="step-letter">b</div>
+                        <p><strong>Download Sample File:</strong> Download the sample Targets Excel Sheet template from the portal repository.</p>
+                    </div>
+                    <div class="tors-step-item">
+                        <div class="step-letter">c</div>
+                        <p><strong>Complete Question Matrix:</strong> Answer each question in the blank column in front of each indicator and save.</p>
+                    </div>
+                    <div class="tors-step-item">
+                        <div class="step-letter">d</div>
+                        <p><strong>Gather &amp; Caption Evidences:</strong> Collect all documentary evidences required, scan them cleanly, and write correct captions.</p>
+                    </div>
+                    <div class="tors-step-item">
+                        <div class="step-letter">e</div>
+                        <p><strong>Zip Archive Creation:</strong> Zip all captioned evidence files into a single consolidated zip archive folder.</p>
+                    </div>
+                    <div class="tors-step-item">
+                        <div class="step-letter">f</div>
+                        <p><strong>Dual Upload:</strong> Upload both the completed Excel report file and the evidence zip folder on the portal.</p>
+                    </div>
+                    <div class="tors-step-item">
+                        <div class="step-letter">g</div>
+                        <p><strong>Override Protection:</strong> If already submitted, uploading again will safely override previous files with the new version.</p>
+                    </div>
+                    <div class="tors-step-item">
+                        <div class="step-letter">h</div>
+                        <p><strong>Submission Deadline:</strong> Upload report and evidence before <strong>15th July, 2026</strong> on <code>faculty.kmu.edu.pk/institute/qec_report</code>.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top:1.5rem; padding:1rem; background:rgba(42,55,125,0.06); border-radius:var(--radius-md); font-size:0.85rem; color:var(--deep-blue);">
+                    <i class="fas fa-info-circle"></i> <strong>KMU Syndicate Note:</strong> Colleges/institutes securing top position will be quality awarded; securing Category W will receive the <em>Best Performers Certificate</em>; securing Category X will receive a <em>Letter of Appreciation</em>. Nonparticipation alert letters will be issued to defaulting institutes.
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1257,11 +1672,11 @@
             <div class="faq-accordion">
                 <div class="faq-item active">
                     <button class="faq-question">
-                        <span>Is my feedback on clinical rotations and teachers strictly confidential?</span>
+                        <span>How is student feedback conducted at Imperial College of Nursing?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes, absolutely. The Quality Enhancement Cell adheres to strict ethical standards. All feedback responses submitted through qec.iconswat.com are aggregated and anonymized. Neither instructors nor hospital supervisors have access to individual student identities.</p>
+                        <p>In accordance with KMU and HEC quality criteria, all course and teacher evaluations (HEC Proforma-1) and clinical rotation reviews are conducted in-person on physical proformas directly administered by the QEC team in classrooms and hospital wards. We do not take online feedback to guarantee 100% authentic participation, uncompromised student anonymity, and verified statistical reliability.</p>
                     </div>
                 </div>
 
@@ -1418,24 +1833,25 @@
                     <ul class="footer-links-list">
                         <li><a href="#home"><i class="fas fa-angle-right"></i> Home Portal</a></li>
                         <li><a href="#about"><i class="fas fa-angle-right"></i> About QEC Cell</a></li>
+                        <li><a href="#targets"><i class="fas fa-angle-right"></i> KMU Approved Targets</a></li>
+                        <li><a href="#feedback"><i class="fas fa-angle-right"></i> Student Feedback System</a></li>
                         <li><a href="#news"><i class="fas fa-angle-right"></i> News & Notifications</a></li>
-                        <li><a href="#feedback"><i class="fas fa-angle-right"></i> Feedback Portals</a></li>
                         <li><a href="#downloads"><i class="fas fa-angle-right"></i> Official Downloads</a></li>
-                        <li><a href="#targets"><i class="fas fa-angle-right"></i> Quality Targets</a></li>
                         <li><a href="https://iconswat.com" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Main College Website</a></li>
                     </ul>
                 </div>
 
                 <!-- Col 3: Quality Portals -->
                 <div class="footer-col">
-                    <h4>Feedback & QA</h4>
+                    <h4>KMU Targets & QA</h4>
                     <ul class="footer-links-list">
-                        <li><a href="#feedback" onclick="document.querySelector('[data-tab=\'clinicalFeedbackTab\']').click();"><i class="fas fa-flask"></i> Skills Lab Evaluation</a></li>
-                        <li><a href="#feedback" onclick="document.querySelector('[data-tab=\'clinicalFeedbackTab\']').click(); document.querySelector('[data-mode=\'clinical\']').click();"><i class="fas fa-hospital"></i> Clinical Rotation Feedback</a></li>
-                        <li><a href="#feedback" onclick="document.querySelector('[data-tab=\'classroomFeedbackTab\']').click();"><i class="fas fa-chalkboard-teacher"></i> HEC Proforma-1 Feedback</a></li>
+                        <li><a href="#targets"><i class="fas fa-bullseye"></i> KMU Approved Targets 2025-26</a></li>
+                        <li><a href="#feedback"><i class="fas fa-clipboard-check"></i> In-Person Evaluation System</a></li>
+                        <li><a href="#feedback"><i class="fas fa-chalkboard-teacher"></i> HEC Proforma-1 Teacher QA</a></li>
+                        <li><a href="#feedback"><i class="fas fa-flask"></i> Clinical & Skills Lab QA</a></li>
+                        <li><a href="assets/docs/KMU_Approved_QEC_Targets_2025_2026.pdf" download><i class="fas fa-file-pdf"></i> Download KMU Targets PDF</a></li>
                         <li><a href="assets/docs/Self_Assessment_Report_SAR_BSN.pdf" download><i class="fas fa-file-pdf"></i> Download SAR BSN</a></li>
                         <li><a href="assets/docs/Notification_QEC_Officers_Appointment.pdf" download><i class="fas fa-file-pdf"></i> QEC Officers Notification</a></li>
-                        <li><a href="assets/docs/QEC_Targets_and_Action_Plan_2025_2026.pdf" download><i class="fas fa-file-pdf"></i> Annual Targets & Action Plan</a></li>
                     </ul>
                 </div>
 
@@ -1501,20 +1917,32 @@
     </div>
 
     <!-- ==========================================================================
-         MODAL 2: SUBMISSION RECEIPT MODAL
+         MODAL 2: OFFICIAL KMU NOTIFICATION VIEWER (2 PAGES SCANNED)
          ========================================================================== -->
-    <div class="modal-overlay" id="receiptModal">
-        <div class="modal-card">
+    <div class="modal-overlay" id="kmuScanModal">
+        <div class="modal-card" style="max-width: 950px; height: 90vh; display: flex; flex-direction: column;">
             <div class="modal-header">
-                <h3><i class="fas fa-check-circle" style="color:var(--success-green); margin-right:0.5rem;"></i> Feedback Successfully Recorded</h3>
-                <button class="modal-close-btn" id="receiptCloseBtn">&times;</button>
+                <div>
+                    <h3 style="margin:0; color:var(--deep-blue); font-size:1.15rem;"><i class="fas fa-university" style="color:var(--primary-red); margin-right:0.4rem;"></i> KMU Syndicate Approved Targets (2025–2026)</h3>
+                    <small style="color:var(--text-muted); font-size:0.78rem;">Notification No: KMU/SA&A/51st Syndicate/2025/6114 | Dated: 17/12/2025</small>
+                </div>
+                <button class="modal-close-btn" id="kmuScanModalClose">&times;</button>
             </div>
-            <div class="modal-body" id="receiptDetails">
-                <!-- Dynamically populated via main.js -->
+            <div class="kmu-scan-nav" style="padding: 0.75rem 1.5rem; background:#F8FAFC; border-bottom:1px solid var(--border-gray); display:flex; gap:0.5rem; justify-content:center;">
+                <button type="button" class="kmu-scan-tab-btn active" id="btnPage1"><i class="fas fa-file-alt"></i> Page 1 (Indicators 1 – 4.4)</button>
+                <button type="button" class="kmu-scan-tab-btn" id="btnPage2"><i class="fas fa-file-alt"></i> Page 2 (Indicators 4.5 – 5.3, Rating &amp; TORs)</button>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline btn-sm" id="printReceiptBtn"><i class="fas fa-print"></i> Print / Save Slip</button>
-                <button class="btn btn-primary btn-sm" onclick="document.getElementById('receiptModal').classList.remove('active');">Done</button>
+            <div class="modal-body" style="flex-grow: 1; overflow-y: auto; text-align: center; background: #334155; padding: 1.5rem;">
+                <img id="kmuScanImg" src="assets/images/kmu-targets-page-1.png" alt="KMU Approved Targets Page 1" class="kmu-scan-img" style="max-width: 100%; border-radius: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
+            </div>
+            <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+                <div>
+                    <span class="badge badge-green"><i class="fas fa-check-circle"></i> Official Verified Syndicate Notification</span>
+                </div>
+                <div style="display:flex; gap:0.5rem;">
+                    <a href="assets/docs/KMU_Approved_QEC_Targets_2025_2026.pdf" download="KMU_Approved_QEC_Targets_2025_2026.pdf" class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Download Full KMU PDF</a>
+                    <button class="btn btn-outline btn-sm" onclick="window.print();"><i class="fas fa-print"></i> Print</button>
+                </div>
             </div>
         </div>
     </div>
