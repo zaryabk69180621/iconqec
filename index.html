@@ -74,8 +74,8 @@
                 <img src="assets/images/logo.png" alt="Imperial College of Nursing Logo" class="logo-img">
                 <div class="logo-text">
                     <div class="qec-header-title">
-                        <h1 class="qec-title-main">Quality Enhancement Cell</h1>
-                        <span class="qec-badge-prominent"><i class="fas fa-award"></i> QEC</span>
+                        <span class="qec-title-main">Quality Enhancement Cell</span>
+                        <span class="qec-badge-prominent">QEC</span>
                     </div>
                     <p class="college-sub-text">
                         <span>Imperial College of Nursing</span>
@@ -83,7 +83,7 @@
                         <span>Kabal, Swat</span>
                     </p>
                     <div class="affiliation-badge-header">
-                        <i class="fas fa-university"></i> Affiliated with Khyber Medical University (KMU) Peshawar
+                        <i class="fas fa-university"></i> Affiliated with KMU Peshawar
                     </div>
                 </div>
             </a>
@@ -93,12 +93,12 @@
                 <ul class="nav-list">
                     <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> About QEC</a></li>
-                    <li><a href="#news" class="nav-link"><i class="fas fa-newspaper"></i> News & Notifications</a></li>
+                    <li><a href="#news" class="nav-link"><i class="fas fa-newspaper"></i> News</a></li>
                     
                     <!-- Dropdown for student evaluation proformas -->
                     <li class="nav-dropdown">
                         <a href="#feedback" class="nav-link dropdown-toggle">
-                            <i class="fas fa-clipboard-check"></i> Student Evaluation <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 2px;"></i>
+                            <i class="fas fa-clipboard-check"></i> Student QA <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 2px;"></i>
                         </a>
                         <div class="dropdown-menu">
                             <a href="#feedback" class="dropdown-item" onclick="document.querySelector('[data-tab=\'clinicalFeedbackTab\']').click();">
@@ -122,15 +122,22 @@
                     <li><a href="#targets" class="nav-link"><i class="fas fa-bullseye"></i> Targets</a></li>
                     <li><a href="#contact" class="nav-link"><i class="fas fa-headset"></i> Contact</a></li>
                 </ul>
+                <div class="mobile-menu-action">
+                    <a href="#feedback" class="btn btn-primary btn-block">
+                        <i class="fas fa-clipboard-check"></i> Evaluation Proformas
+                    </a>
+                </div>
             </nav>
 
-            <!-- Header Action Button -->
+            <!-- Header Action Button & Mobile Hamburger -->
             <div class="header-actions">
-                <a href="#feedback" class="btn btn-primary btn-sm">
-                    <i class="fas fa-clipboard-check"></i> Evaluation Proformas
+                <a href="#feedback" class="btn btn-primary btn-sm header-cta-btn">
+                    <i class="fas fa-clipboard-check"></i> QA Proformas
                 </a>
                 <button class="hamburger-btn" id="menuToggle" aria-label="Toggle Navigation">
-                    <i class="fas fa-bars"></i>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </button>
             </div>
         </div>

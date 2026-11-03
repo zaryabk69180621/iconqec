@@ -110,27 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('open');
-            const icon = menuToggle.querySelector('i');
-            if (icon) {
-                if (navMenu.classList.contains('open')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            }
+            menuToggle.classList.toggle('active');
         });
 
         // Close menu on link click
         document.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('open');
-                const icon = menuToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+                menuToggle.classList.remove('active');
             });
         });
     }
